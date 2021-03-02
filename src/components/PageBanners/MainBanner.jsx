@@ -11,22 +11,21 @@ const options = {
     responsiveClass:true,
     dots:false,
     autoplayHoverPause:true,
-    mouseDrag:true,
+    // mouseDrag:true,
     navText: [
         "<i class='fa fa-angle-left'></i>",
         "<i class='fa fa-angle-right'></i>"
     ]
 }
- 
-class MainBanner extends React.Component {
-    render(){
-        return (
-            <OwlCarousel 
+
+const MainBanner = (props) => {
+    return (
+        <OwlCarousel 
                 id="home"
                 className="home-slides owl-theme"
                 {...options}
             >
-            {this.props.slideData.map((data, idx) => (
+            {props.slideData.map((data, idx) => (
                 <div className={`main-banner ${data.klasName}`} key={idx}>
                     <div className="d-table">
                         <div className="d-table-cell">
@@ -88,10 +87,9 @@ class MainBanner extends React.Component {
                     </div>
                 </div>
             ))}
-            </OwlCarousel>
-        );
-    }
-}
+        </OwlCarousel>
+    )
+  }
 
 MainBanner.defaultProps = {
     slideData: [

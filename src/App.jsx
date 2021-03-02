@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navigation from './components/Navigation/Navigation';
 import Preloader from './components/Common/Preloader';
@@ -6,21 +6,19 @@ import Home from './components/Pages/Home';
 import Blog from './components/Pages/Blog';
 import BlogDetails from './components/Pages/BlogDetails';
 
-class App extends React.Component {
+const App = () => {
 
-    state = {
-        loading: true
-    };
+    const [loading, setloading] = useState(true);
 
-    componentDidMount(){
-        this.demoAsyncCall().then(() => this.setState({ loading: false }));
-    }
+    useEffect(() => {
+        demoAsyncCall().then(() => setloading(false) );
+    })
 
-    demoAsyncCall = () => {
+    const demoAsyncCall = () => {
         return new Promise((resolve) => setTimeout(() => resolve(), 2000));
     }
 
-    hashLinkScroll = () => {
+    const hashLinkScroll = () => {
         const { hash } = window.location;
         if (hash !== '') {
             setTimeout(() => {
@@ -31,19 +29,17 @@ class App extends React.Component {
         }
     }
 
-    render() {
-        return (
-            <Router onUpdate={this.hashLinkScroll}>
-                <React.Fragment>
-                    {this.state.loading ? <Preloader /> : ''}
-                    <Navigation />
-                    <Route path="/" exact component={Home} />
-                    <Route path="/blog" exact component={Blog} />
-                    <Route path="/blog-details" exact component={BlogDetails} />
-                </React.Fragment>
-            </Router>
-        );
-    }
+    return (
+        <Router onUpdate={hashLinkScroll}>
+            <React.Fragment>
+                {loading ? <Preloader /> : ''}
+                <Navigation />
+                <Route path="/" exact component={Home} />
+                <Route path="/blog" exact component={Blog} />
+                <Route path="/blog-details" exact component={BlogDetails} />
+            </React.Fragment>
+        </Router>
+    )
 }
 
 export default App;
