@@ -21,6 +21,7 @@ import Subscribe from '../Common/Subscribe';
 import Contact from '../Common/Contact';
 import Footer from '../Common/Footer';
 import GoTop from '../Common/GoTop';
+import Program from '../Common/Program';
  
 class HomeTwo extends React.Component {
     render(){
@@ -32,6 +33,8 @@ class HomeTwo extends React.Component {
                 <Welcome />
                 {/* About Area */}
                 <About />
+                {/* About Area */}
+                <Program />
                 {/* Strategy Area */}
                 <Strategy />
                 {/* Who We Are Area */}
