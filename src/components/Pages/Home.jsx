@@ -36,37 +36,37 @@ class HomeTwo extends React.Component {
                 {/* About Area */}
                 <Program />
                 {/* Strategy Area */}
-                <Strategy />
+                {/* <Strategy /> */}
                 {/* Who We Are Area */}
                 <WhoWeAre />
                 {/* CTR Area */}
-                <Ctr />
+                {/* <Ctr /> */}
                 {/* Skill Area */}
-                <Skill />
+                {/* <Skill /> */}
                 {/* Fact Area */}
                 <Funfact />
                 {/* Team Area */}
                 <Team />
                 {/* How We Work */}
-                <HowWeWork />
+                {/* <HowWeWork /> */}
                 {/* Services Area */}
-                <Services />
+                {/* <Services /> */}
                 {/* Why We Are Different */}
-                <WhyWeDifferent />
+                {/* <WhyWeDifferent /> */}
                 {/* Work Area */}
                 <Work />
                 {/* Price Area */}
-                <Price />
+                {/* <Price /> */}
                 {/* FAQ Area */}
-                <Faq />
+                {/* <Faq /> */}
                 {/* Testimonials Area */}
                 <Testimonial />
                 {/* Blog Area */}
-                <Blog />
+                {/* <Blog /> */}
                 {/* Partner Area */}
                 <Partner />
                 {/* Subscribe Area */}
-                <Subscribe />
+                {/* <Subscribe /> */}
                 {/* Contact Area */}
                 <Contact />
                 {/* Footer Area */}

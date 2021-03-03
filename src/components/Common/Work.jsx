@@ -41,7 +41,7 @@ class Work extends React.Component {
             <section id="work" className="work-area ptb-80">
                 <div className="container">
                     <div className="section-title">
-                        <h2>Our <span>Work</span></h2>
+                        <h2><span>Album</span></h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                     

@@ -30,8 +30,11 @@ const options = {
 class Partner extends React.Component {
     render(){
         return (
-            <div className="partner-area ptb-80 bg-f6f6f6">
+            <div className="partner-area ptb-80">
                 <div className="container">
+                    <div className="section-title">
+                        <h2>Partner <span>kami</span></h2>
+                    </div>
                     <div className="row">
                         <OwlCarousel 
                             className="partner-slider owl-carousel owl-theme"
@@ -40,72 +43,37 @@ class Partner extends React.Component {
                             <div className="col-lg-12 col-md-12">
                                 <div className="item">
                                     <Link to="#"><img src={require('../../assets/images/partner-1.png')} alt="partner" /></Link>
+                                    <span>lorem</span>
                                 </div>
                             </div>
-                            
-                            <div className="col-lg-12 col-md-12">
-                                <div className="item">
-                                    <Link to="#"><img src={require('../../assets/images/partner-2.png')} alt="partner" /></Link>
-                                </div>
-                            </div>
-                            
-                            <div className="col-lg-12 col-md-12">
-                                <div className="item">
-                                    <Link to="#"><img src={require('../../assets/images/partner-3.png')} alt="partner" /></Link>
-                                </div>
-                            </div>
-                            
-                            <div className="col-lg-12 col-md-12">
-                                <div className="item">
-                                    <Link to="#"><img src={require('../../assets/images/partner-4.png')} alt="partner" /></Link>
-                                </div>
-                            </div>
-                            
-                            <div className="col-lg-12 col-md-12">
-                                <div className="item">
-                                    <Link to="#"><img src={require('../../assets/images/partner-5.png')} alt="partner" /></Link>
-                                </div>
-                            </div>
-                            
-                            <div className="col-lg-12 col-md-12">
-                                <div className="item">
-                                    <Link to="#"><img src={require('../../assets/images/partner-6.png')} alt="partner" /></Link>
-                                </div>
-                            </div>
-                            
                             <div className="col-lg-12 col-md-12">
                                 <div className="item">
                                     <Link to="#"><img src={require('../../assets/images/partner-1.png')} alt="partner" /></Link>
+                                    <span>lorem</span>
                                 </div>
                             </div>
-                            
                             <div className="col-lg-12 col-md-12">
                                 <div className="item">
-                                    <Link to="#"><img src={require('../../assets/images/partner-2.png')} alt="partner" /></Link>
+                                    <Link to="#"><img src={require('../../assets/images/partner-1.png')} alt="partner" /></Link>
+                                    <span>lorem</span>
                                 </div>
                             </div>
-                            
                             <div className="col-lg-12 col-md-12">
                                 <div className="item">
-                                    <Link to="#"><img src={require('../../assets/images/partner-3.png')} alt="partner" /></Link>
+                                    <Link to="#"><img src={require('../../assets/images/partner-1.png')} alt="partner" /></Link>
+                                    <span>lorem</span>
                                 </div>
                             </div>
-                            
                             <div className="col-lg-12 col-md-12">
                                 <div className="item">
-                                    <Link to="#"><img src={require('../../assets/images/partner-4.png')} alt="partner" /></Link>
+                                    <Link to="#"><img src={require('../../assets/images/partner-1.png')} alt="partner" /></Link>
+                                    <span>lorem</span>
                                 </div>
                             </div>
-                            
                             <div className="col-lg-12 col-md-12">
                                 <div className="item">
-                                    <Link to="#"><img src={require('../../assets/images/partner-5.png')} alt="partner" /></Link>
-                                </div>
-                            </div>
-                            
-                            <div className="col-lg-12 col-md-12">
-                                <div className="item">
-                                    <Link to="#"><img src={require('../../assets/images/partner-6.png')} alt="partner" /></Link>
+                                    <Link to="#"><img src={require('../../assets/images/partner-1.png')} alt="partner" /></Link>
+                                    <span>lorem</span>
                                 </div>
                             </div>
                         </OwlCarousel>

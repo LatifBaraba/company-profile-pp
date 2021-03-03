@@ -35,6 +35,7 @@ class Welcome extends React.Component {
                     <div className="section-title">
                         {/* <h4>We are creative</h4> */}
                         <h2>Program Donasi <span>#TiapHariBerbagi</span></h2>
+                        <button className="btn btn-primary">Lihat lainnya</button>
                         {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
                     </div>
                     

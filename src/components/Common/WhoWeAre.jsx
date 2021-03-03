@@ -6,7 +6,7 @@ class WhoWeAre extends React.Component {
             <section className="who-we-are ptb-80 bg-f6f6f6">
                 <div className="container">
                     <div className="section-title">
-                        <h2>Who We <span>Are</span></h2>
+                        <h2>Tujuan <span>kami</span></h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                     

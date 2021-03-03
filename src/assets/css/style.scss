@@ -146,6 +146,8 @@ img {
 }
 /* Section Title */
 .section-title {
+    display: flex;
+    justify-content: space-between;
 	margin-bottom: 60px;
 	padding-left: 30px;
     position: relative;
@@ -425,6 +427,11 @@ Main Header CSS
                 &.active, &.show, &:hover, &:focus {
                     color: $template_color;
                 }
+            }
+
+            .btn-donasi {
+                padding: 2px 15px;
+                margin-top: 5px;
             }
         }
 
@@ -1894,13 +1901,16 @@ Partner Area CSS
 */
 .partner-area {
     text-align: center;
-
+    background-color: white;
     .owl-carousel {
         .owl-item {
             img {
-                width: 140px;
+                width: 100%;
             }
         }
+    }
+    span {
+        text-align: center;
     }
 }
 

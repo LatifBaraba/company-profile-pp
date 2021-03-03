@@ -39,8 +39,8 @@ class Team extends React.Component {
             <section id="team" className="team-area ptb-80">
                 <div className="container">
                     <div className="section-title">
-                        <h4>Meet Addax</h4>
-                        <h2>Our Creative <span>Team</span></h2>
+                        {/* <h4>Pemuda Peduli</h4> */}
+                        <h2>Pendiri <span>kami</span></h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                     

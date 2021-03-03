@@ -9,7 +9,7 @@ class Testimonial extends React.Component {
             <section className="testimonials-area ptb-80 bg-f6f6f6">
                 <div className="container">
                     <div className="section-title">
-                        <h2>Our Clients <span>Feedback</span></h2>
+                        <h2>Beberapa <span>testimoni</span></h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                     

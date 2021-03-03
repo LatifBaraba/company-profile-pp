@@ -37,8 +37,8 @@ class Navigation extends React.Component {
                 let fromTop = window.scrollY;
             
                 mainNavLinks.forEach(link => {
-                let section = document.querySelector(link.hash);
-            
+                    let section = document.querySelector(link.hash);
+                
                     if (
                         section.offsetTop <= fromTop &&
                         section.offsetTop + section.offsetHeight > fromTop
@@ -89,7 +89,7 @@ class Navigation extends React.Component {
                             onClick={() => this.goToId("/#team")}
                         >Team</Link>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <Link  
                             className="nav-link" 
                             to="/#services"
@@ -102,21 +102,21 @@ class Navigation extends React.Component {
                             to="/#work"
                             onClick={() => this.goToId("/#work")}
                         >Work</Link>
-                    </li>
-                    <li className="nav-item">
+                    </li> */}
+                    {/* <li className="nav-item">
                         <Link 
                             className="nav-link" 
                             to="/#price"
                             onClick={() => this.goToId("/#price")}
                         >Price</Link>
-                    </li>
-                    <li className="nav-item">
+                    </li> */}
+                    {/* <li className="nav-item">
                         <Link 
                             className="nav-link" 
                             to="/#blog"
                             onClick={() => this.goToId("/#blog")}
                         >Blog</Link>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
                         <Link 
                             className="nav-link" 
@@ -142,20 +142,23 @@ class Navigation extends React.Component {
                 <li className="nav-item">
                     <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#team">Team</AnchorLink>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                     <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#services">Services</AnchorLink>
                 </li>
                 <li className="nav-item">
                     <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#work">Work</AnchorLink>
-                </li>
-                <li className="nav-item">
+                </li> */}
+                {/* <li className="nav-item">
                     <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#price">Price</AnchorLink>
-                </li>
-                <li className="nav-item">
+                </li> */}
+                {/* <li className="nav-item">
                     <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#blog">Blog</AnchorLink>
-                </li>
+                </li> */}
                 <li className="nav-item">
                     <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#contact">Contact</AnchorLink>
+                </li>
+                <li className="nav-item">
+                    <button className="btn btn-primary btn-donasi">Donasi!</button>
                 </li>
             </ul>
         );
