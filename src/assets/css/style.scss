@@ -2048,7 +2048,7 @@ Contact Area CSS
 	padding: 40px 30px;
     border: {
         top: 3px solid $template_color;
-        bottom: 3px solid $template_color;
+        // bottom: 3px solid $template_color;
     }
     background: #ffffff;
     h4 {
@@ -2072,7 +2072,27 @@ Contact Area CSS
         padding: 15px;
     }
 }
-
+.contact-area {
+    .contact-one {
+        box-shadow: 0 0 30px 0 rgba(67, 67, 67, 0.15);
+        padding: 40px 30px;
+        border: {
+            top: 3px solid $template_color;
+            // bottom: 3px solid $template_color;
+        }
+        background: #ffffff;
+    }
+    
+    .contact-two {
+        box-shadow: 0 0 30px 0 rgba(67, 67, 67, 0.15);
+        padding: 40px 30px;
+        border: {
+            top: 3px solid $template_color;
+            // bottom: 3px solid $template_color;
+        }
+        background: #ffffff;
+    }
+}
 /*
 ==============================
 Page Title CSS
