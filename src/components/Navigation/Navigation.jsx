@@ -176,7 +176,7 @@ class Navigation extends React.Component {
                         to="/"
                         onClick={() => window.location.refresh()}
                     >
-                        <span>A</span>ddax
+                        <span>PemudaPeduli</span>
                     </Link>
                     <button 
                         onClick={this.toggleNavbar}

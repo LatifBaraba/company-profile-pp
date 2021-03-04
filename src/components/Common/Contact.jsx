@@ -115,25 +115,69 @@ class Contact extends React.Component {
                             </div> */}
                             <div className="col-lg-12">
                                 <div className="contact-one">
-                                    <h4>Stay Connected</h4>
+                                    <h4>SK Legalitas</h4>
                                 </div>
                             </div>
                             <div className="col-lg-12">
                                 <div className="contact-one">
-                                    <h4>Stay Connected</h4>
+                                    <Link>
+                                        <span>Jl. Sukawarna No.12, Husen Sastranegara, Kec. Cicendo, Kota Bandung, Jawa Barat 40173</span>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
 
                         <div className="col-lg-4 col-md-12">
                             <div className="contact-two">
-                                <h4>Stay Connected</h4>
+                                <h4>Hubungi Kami</h4>
+                                <ul>
+                                    <li>
+                                        <Link>
+                                            <div className="social-logo">
+                                                <i class="fa fa-envelope fa-lg"></i>
+                                                <span>Email</span>
+                                            </div>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link>
+                                            <div className="social-logo">
+                                                <i class="fa fa-instagram fa-lg"></i>
+                                                <span>Instagram</span>
+                                            </div>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link>
+                                            <div className="social-logo">
+                                                <i class="fa fa-twitter fa-lg"></i> 
+                                                <span>Twitter</span>
+                                            </div>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link>
+                                            <div className="social-logo">
+                                                <i class="fa fa-youtube fa-lg"></i>
+                                                <span> Youtube</span>
+                                            </div>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link>
+                                            <div className="social-logo">
+                                                <i class="fa fa-spotify fa-lg"></i>
+                                                <span>Spotify</span>
+                                            </div>
+                                        </Link>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
                         <div className="col-lg-4 col-md-12">
                             <div className="contact-two">
-                                <h4>Stay Connected</h4>
+                                <h4>Menu</h4>
                             </div>
                         </div>
                     </div>

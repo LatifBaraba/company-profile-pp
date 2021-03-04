@@ -8,14 +8,14 @@ class Footer extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12 col-md-12">
-                            <h4><Link to="/"><span>a</span>ddax</Link></h4>
-                            <ul>
+                            <h4><Link to="/"><span>PemudaPeduli</span></Link></h4>
+                            {/* <ul>
                                 <li><Link to="#" className="fa fa-facebook"></Link></li>
                                 <li><Link to="#" className="fa fa-twitter"></Link></li>
                                 <li><Link to="#" className="fa fa-skype"></Link></li>
                                 <li><Link to="#" className="fa fa-instagram"></Link></li>
                                 <li><Link to="#" className="fa fa-linkedin"></Link></li>
-                            </ul>
+                            </ul> */}
                             <p>Copyright <i className="fa fa-copyright"></i> 2019 All Rights Reserved.</p>
                         </div>
                     </div>
