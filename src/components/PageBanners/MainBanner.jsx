@@ -96,7 +96,8 @@ MainBanner.defaultProps = {
         {
             heading: "We Are Creative",
             subHeading: "Nice To <span>Meet</span> You",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            // text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque facilisis, nulla vitae efficitur hendrerit, velit elit tempus diam, in porttitor risus est id odio. Nulla ut accumsan mi. In hac habitasse platea dictumst. Mauris ut arcu suscipit, laoreet dui in, eleifend nibh. Morbi volutpat augue turpis, ut lobortis sem bibendum.",
             klasName: "item-bg-two"
         },
         {
