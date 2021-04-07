@@ -134,7 +134,7 @@ class Navigation extends React.Component {
                     <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#home">Home</AnchorLink>
                 </li>
                 <li className="nav-item">
-                    <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#about">Tentang</AnchorLink>
+                    <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#about">About</AnchorLink>
                 </li>
                 <li className="nav-item">
                     <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#program">Program</AnchorLink>

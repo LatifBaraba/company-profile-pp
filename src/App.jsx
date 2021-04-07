@@ -5,8 +5,15 @@ import Preloader from './components/Common/Preloader';
 import Home from './components/Pages/Home';
 import Blog from './components/Pages/Blog';
 import BlogDetails from './components/Pages/BlogDetails';
-
+import { useDispatch } from 'react-redux'
+import { fetchToken } from './redux/token/action'
 const App = () => {
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fetchToken())
+    }, [])
 
     const [loading, setloading] = useState(true);
 

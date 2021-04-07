@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ModalVideo from 'react-modal-video';
 import '../../../node_modules/react-modal-video/scss/modal-video.scss';
 import { Link } from 'react-router-dom';
 import aboutImg from '../../assets/images/about.jpg';
 import OwlCarousel from 'react-owl-carousel3';
+import { fetchTentang } from '../../redux/tentang/action'
+import { useDispatch, useSelector } from 'react-redux'
 
 const options = {
     loop: true,
@@ -24,110 +26,45 @@ const options = {
     }
 }
  
-class About extends React.Component {
-    state = {
-        isOpen: false
-    }
+const About = () => {
 
-    openModal = () => {
-        this.setState({isOpen: true})
-    }
-    render(){
-        return (
-            <section id="about" className="about-area ptb-80 bg-f6f6f6">
-                <div className="container">
-                    <div className="section-title">
-                        <h2>Tentang <span>Kami</span></h2>
-                        {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
-                    </div>
-                    
-                    <div className="row">
-                        {/* <div className="col-lg-6 col-md-12">
-                            <div className="about-addax">
-                                <div className="section-title">
-                                    <h2>We Are Digital <span>Marketing & Branding</span></h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
+    const token = localStorage.getItem("token")
+    const dispatch = useDispatch()
 
-                                <ul className="pull-left">
-                                    <li><i className="fa fa-check"></i>Creative Design</li>
-                                    <li><i className="fa fa-check"></i>Retina Ready</li>
-                                    <li><i className="fa fa-check"></i>Responsive Design</li>
-                                </ul>
+    useEffect(() => {
+        dispatch(fetchTentang(token))
+    }, [])
 
-                                <ul>
-                                    <li><i className="fa fa-check"></i>Modern Design</li>
-                                    <li><i className="fa fa-check"></i>Awesome Design</li>
-                                    <li><i className="fa fa-check"></i>Digital Marketing & Branding</li>
-                                </ul>
-
-                                <Link to="#" className="btn btn-primary">Read More</Link>
-                            </div>
-                        </div> */}
-                        
-                        {/* <div className="col-lg-6 col-md-12">
-                            <div className="about-video">
-                                <img src={aboutImg} alt="about" />
-                                <div className="video-btn">
-                                    <Link 
-                                        onClick={e => {e.preventDefault(); this.openModal()}}
-                                        to="#" 
-                                        className="popup-youtube"
-                                    >
-                                        <i className="fa fa-play"></i>
-                                    </Link>
-                                    <ModalVideo 
-                                        channel='youtube' 
-                                        isOpen={this.state.isOpen} 
-                                        videoId='bk7McNUjWgw' 
-                                        onClose={() => this.setState({isOpen: false})} 
-                                    />
-                                </div>
-                            </div>
-                        </div> */}
-                        <OwlCarousel 
-                            className="blog-slider owl-carousel owl-theme"
-                            {...options}
-                        >
-                            <div className="col-lg-12 col-md-12">
-                                {/* <div className="single-blog-item" style={{backgroundImage: `url(${require("../../assets/images/services-img1.jpg")})`}}> */}
-                                <div className="single-blog-item" style={{backgroundImage: `url(https://images.unsplash.com/photo-1614759896448-7cc6a2606c38?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)`}}>
-                                    <span>Business & Tech</span>
-                                    {/* <h4><Link to="#">The best gear for starting Link small business</Link></h4> */}
-                                    <h4>The best gear for starting Link small business</h4>
-                                    <p> Fusce vitae nulla at lorem pret ium semper. Curab itur laoreet, lectus ac digni ssim vest ibul lorem pretium semper lectus ac digni...</p>
-                                    
-                                    {/* <Link to="/blog-details" title="Read More" className="link-btn"><i className="fa fa-arrow-right"></i></Link> */}
-                                </div>
-                            </div>
-                            <div className="col-lg-12 col-md-12">
-                                {/* <div className="single-blog-item" style={{backgroundImage: `url(${require("../../assets/images/services-img1.jpg")})`}}> */}
-                                <div className="single-blog-item" style={{backgroundImage: `url(https://images.unsplash.com/photo-1614759896448-7cc6a2606c38?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)`}}>
-                                    <span>Business & Tech</span>
-                                    {/* <h4><Link to="#">The best gear for starting Link small business</Link></h4> */}
-                                    <h4>The best gear for starting Link small business</h4>
-                                    <p> Fusce vitae nulla at lorem pret ium semper. Curab itur laoreet, lectus ac digni ssim vest ibul lorem pretium semper lectus ac digni...</p>
-                                    
-                                    {/* <Link to="/blog-details" title="Read More" className="link-btn"><i className="fa fa-arrow-right"></i></Link> */}
-                                </div>
-                            </div>
-                            <div className="col-lg-12 col-md-12">
-                                {/* <div className="single-blog-item" style={{backgroundImage: `url(${require("../../assets/images/services-img1.jpg")})`}}> */}
-                                <div className="single-blog-item" style={{backgroundImage: `url(https://images.unsplash.com/photo-1614759896448-7cc6a2606c38?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)`}}>
-                                    <span>Business & Tech</span>
-                                    {/* <h4><Link to="#">The best gear for starting Link small business</Link></h4> */}
-                                    <h4>The best gear for starting Link small business</h4>
-                                    <p> Fusce vitae nulla at lorem pret ium semper. Curab itur laoreet, lectus ac digni ssim vest ibul lorem pretium semper lectus ac digni...</p>
-                                    
-                                    {/* <Link to="/blog-details" title="Read More" className="link-btn"><i className="fa fa-arrow-right"></i></Link> */}
-                                </div>
-                            </div>
-                        </OwlCarousel>
-                    </div>
+    const tentangData = useSelector((state) => state.tentangReducer.tentang)
+    return (
+        <section id="about" className="about-area ptb-80 bg-f6f6f6">
+            <div className="container">
+                <div className="section-title">
+                    <h2>Tentang <span>Kami</span></h2>
+                    {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
                 </div>
-            </section>
-        );
-    }
+                
+                <div className="row">
+                    {tentangData.length > 0 &&
+                        <OwlCarousel className="blog-slider owl-carousel owl-theme" {...options}>
+                            {tentangData.map((data, idx) => (
+                                <div className="col-lg-12 col-md-12" key={idx} id={data.id}>
+                                    <div className="single-blog-item" style={{backgroundImage: `url(${data.thumbnail_image_url})`}}>
+                                        {/* <span>Business & Tech</span> */}
+                                        {/* <h4><Link to="#">The best gear for starting Link small business</Link></h4> */}
+                                        {/* <h4>The best gear for starting Link small business</h4> */}
+                                        <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta facere quia voluptates similique id quidem praesentium vel dolore modi aliquid facilis nisi, sapiente nemo tenetur quod sunt! Aliquam quasi omnis suscipit saepe assumenda, quas minus maxime, asperiores commodi adipisci dolorem exercitationem iste tempore. Maiores obcaecati tempore placeat et doloremque asperiores libero ex quisquam ut, rerum, fuga ipsa odio nulla quasi vel nostrum laboriosam voluptate architecto sequi repudiandae quidem veritatis vitae minima. Deleniti quas voluptates, ut quidem necessitatibus totam quaerat dolor magnam obcaecati, beatae ex ab cum repellat sed aperiam reprehenderit veniam rem laudantium perferendis nobis cumque! Commodi alias eos praesentium iusto nesciunt? Quos nam minus expedita veniam in? Neque deserunt animi itaque saepe harum, accusamus nulla totam beatae? Repudiandae ullam accusamus cumque nobis, accusantium corrupti veniam velit porro et id molestias ratione quod, tempora inventore totam! Nobis, necessitatibus. Rerum molestiae quod repellat ipsam distinctio necessitatibus voluptatem! Cum dolor nesciunt ab necessitatibus aliquam, mollitia aliquid totam autem est sit, impedit, eligendi illo perspiciatis perferendis aperiam id eum. Maxime, maiores quisquam facere voluptatibus officiis molestiae amet magnam est, repellat esse vel vitae laboriosam tempore, ducimus accusantium fugiat atque! Odio pariatur ratione nostrum voluptas veritatis aliquam qui facere magni, sit at aliquid numquam.</p>
+                                        
+                                        {/* <Link to="/blog-details" title="Read More" className="link-btn"><i className="fa fa-arrow-right"></i></Link> */}
+                                    </div>
+                                </div>
+                            ))}
+                        </OwlCarousel>
+                    }
+                </div>
+            </div>
+        </section>
+    );
 }
  
 export default About;
