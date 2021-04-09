@@ -39,14 +39,11 @@ class Navigation extends React.Component {
                 mainNavLinks.forEach(link => {
                     let section = document.querySelector(link.hash);
                 
-                    if (
-                        section.offsetTop <= fromTop &&
-                        section.offsetTop + section.offsetHeight > fromTop
-                    ) {
-                        link.classList.add("active");
-                    } else {
-                        link.classList.remove("active");
-                    }
+                    // if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+                    //     link.classList.add("active");
+                    // } else {
+                    //     link.classList.remove("active");
+                    // }
                 });
             });
         }
@@ -121,6 +118,13 @@ class Navigation extends React.Component {
                         <Link 
                             className="nav-link" 
                             to="/#contact"
+                            onClick={() => this.goToId("/#partner")}
+                        >Partner</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link 
+                            className="nav-link" 
+                            to="/#contact"
                             onClick={() => this.goToId("/#contact")}
                         >Contact</Link>
                     </li>
@@ -154,6 +158,9 @@ class Navigation extends React.Component {
                 {/* <li className="nav-item">
                     <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#blog">Blog</AnchorLink>
                 </li> */}
+                <li className="nav-item">
+                    <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#partner">Partner</AnchorLink>
+                </li>
                 <li className="nav-item">
                     <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#contact">Contact</AnchorLink>
                 </li>

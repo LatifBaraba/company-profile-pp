@@ -58,9 +58,9 @@ const Welcome = (props) => {
                                         <span>{data.title}</span>
                                         <h4><Link to="#">{data.sub_title}</Link></h4>
                                         {/* <h4>The best gear for starting Link small business</h4> */}
-                                        <p> Fusce vitae nulla at lorem pret ium semper. Curab itur laoreet, lectus ac digni ssim vest ibul lorem pretium semper lectus ac digni...</p> 
+                                        {/* <p> Fusce vitae nulla at lorem pret ium semper. Curab itur laoreet, lectus ac digni ssim vest ibul lorem pretium semper lectus ac digni...</p>  */}
                                         
-                                        <Link to="/blog-details" title="Read More" className="link-btn"><i className="fa fa-arrow-right"></i></Link>
+                                        <Link to="#" title="Read More" className="link-btn"><i className="fa fa-arrow-right"></i></Link>
                                     </div>
                                 </div>
                             ))}
