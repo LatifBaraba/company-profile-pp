@@ -1827,7 +1827,7 @@ Blog Area CSS
 	border: 1px solid #eeeeee;
 	overflow: hidden;
     background: {
-        size: cover;
+        size: contain;
         position: center center;
         repeat: no-repeat;
     }
@@ -1844,7 +1844,7 @@ Blog Area CSS
         height: 100%;
         // background: #ffffff;
         background: #000000;
-        opacity: .35;
+        opacity: .1;
         transition: .4s;
     }
     span, p, h4 {
@@ -1882,8 +1882,8 @@ Blog Area CSS
     }
     &:hover {
         &::before {
-            background: #000000;
-            opacity: .66;
+            // background: #000000;
+            opacity: .2;
         }
         span, p, h4 a {
             color: #ffffff;
