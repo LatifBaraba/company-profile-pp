@@ -6,12 +6,13 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const options = {
     loop: true,
-    autoplay:true,
+    autoplay: true,
     nav: false,
     mouseDrag: true,
     autoplayHoverPause: true,
     responsiveClass: true,
     dots: true,
+    // item: 4,
     navText: [
         "<i class='fa fa-angle-left'></i>",
         "<i class='fa fa-angle-right'></i>"
@@ -24,7 +25,7 @@ const options = {
             items:4,
         },
         1200:{
-            items:6,
+            items:4,
         }
     }
 }
