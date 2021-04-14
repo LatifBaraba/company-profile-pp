@@ -22,7 +22,8 @@ import Contact from '../Common/Contact';
 import Footer from '../Common/Footer';
 import GoTop from '../Common/GoTop';
 import Program from '../Common/Program';
-import News from '../Common/News'
+import News from '../Common/News';
+import Beneficaries from '../Common/Beneficaries'
  
 class HomeTwo extends React.Component {
     render(){
@@ -58,6 +59,7 @@ class HomeTwo extends React.Component {
                 <News />
                 {/* Work Area */}
                 <Work />
+                <Beneficaries/>
                 {/* Price Area */}
                 {/* <Price /> */}
                 {/* FAQ Area */}

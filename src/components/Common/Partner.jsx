@@ -5,7 +5,7 @@ import { fetchPartner } from '../../redux/partner/action'
 import { useDispatch, useSelector } from 'react-redux'
 
 const options = {
-    loop: true,
+    loop: false,
     autoplay: true,
     nav: false,
     mouseDrag: true,

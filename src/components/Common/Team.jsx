@@ -9,8 +9,8 @@ import teamFive from '../../assets/images/team-5.jpg';
 import teamSix from '../../assets/images/team-6.jpg';
 
 const options = {
-    loop: true,
-    autoplay:true,
+    loop: false,
+    autoplay: true,
     nav: false,
     mouseDrag: true,
     autoplayHoverPause: true,

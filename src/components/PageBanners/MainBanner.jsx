@@ -6,8 +6,8 @@ import { fetchBanner } from '../../redux/banner/action'
 import { useDispatch, useSelector } from 'react-redux'
 
 const options = {
-    items:1,
-    loop:true,
+    items: 1,
+    loop: false,
     autoplay:true,
     nav:true,
     responsiveClass:true,

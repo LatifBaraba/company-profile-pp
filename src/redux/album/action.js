@@ -37,11 +37,6 @@ export function fetchAlbum(token) {
         })
         .catch(err => {
             console.log(err)
-            if(err.response.status === 401){
-                toast.error("Unauthorized")
-                dispatch(fetchRefreshToken(token))
-                history.push('/login')
-            }
             dispatch(getAlbumFailure(err));
         });
     };

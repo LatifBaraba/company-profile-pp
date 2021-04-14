@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel3';
 
 const options = {
-    loop: true,
-    autoplay:true,
+    loop: false,
+    autoplay: true,
     nav: false,
     mouseDrag: true,
     autoplayHoverPause: true,

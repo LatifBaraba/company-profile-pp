@@ -5,8 +5,8 @@ import { fetchBerita } from '../../redux/berita/action'
 import { useDispatch, useSelector } from 'react-redux'
 
 const options = {
-    loop: true,
-    autoplay:true,
+    loop: false,
+    autoplay: true,
     nav: false,
     mouseDrag: true,
     autoplayHoverPause: true,
