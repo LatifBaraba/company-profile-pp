@@ -1,15 +1,11 @@
 import React, { useEffect } from 'react';
-import ModalVideo from 'react-modal-video';
-import '../../../node_modules/react-modal-video/scss/modal-video.scss';
-import { Link } from 'react-router-dom';
-import aboutImg from '../../assets/images/about.jpg';
 import OwlCarousel from 'react-owl-carousel3';
-import { fetchTentang } from '../../redux/tentang/action'
+import { fetchBeneficaries } from '../../redux/beneficaries/action'
 import { useDispatch, useSelector } from 'react-redux'
 
 const options = {
-    loop: true,
-    autoplay: false,
+    loop: false,
+    autoplay: true,
     nav: false,
     mouseDrag: true,
     autoplayHoverPause: true,
@@ -23,6 +19,9 @@ const options = {
         0:{
             items:1,
         },
+        768:{
+            items:2,
+        }
     }
 }
  
@@ -32,10 +31,10 @@ const Beneficaries = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(fetchTentang(token))
+        dispatch(fetchBeneficaries(token))
     }, [])
 
-    const tentangData = useSelector((state) => state.tentangReducer.tentang)
+    const beneficariesData = useSelector((state) => state.beneficariesReducer.beneficaries)
     return (
         <section id="beneficaries" className="about-area ptb-80 bg-f6f6f6">
             <div className="container">
@@ -45,9 +44,9 @@ const Beneficaries = () => {
                 </div>
                 
                 <div className="row">
-                    {tentangData.length > 0 &&
+                    {beneficariesData.length > 0 &&
                         <OwlCarousel className="blog-slider owl-carousel owl-theme" {...options}>
-                            {tentangData.map((data, idx) => (
+                            {beneficariesData.map((data, idx) => (
                                 <div className="col-lg-12 col-md-12" key={idx} id={data.id}>
                                     <div className="single-blog-item" style={{backgroundImage: `url(${data.thumbnail_image_url})`, width:"100%", height:"100%"}}>
                                         {/* <span>Business & Tech</span> */}

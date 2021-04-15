@@ -5,21 +5,15 @@ import { Link } from 'react-router-dom';
 import mixitup from "mixitup";
 import { fetchAlbum } from '../../redux/album/action'
 import { useDispatch, useSelector } from 'react-redux'
-
-const images = [
-    require("../../assets/images/work-img1.jpg"),
-    require("../../assets/images/work-img2.jpg"),
-    require("../../assets/images/work-img3.jpg"),
-    require("../../assets/images/work-img4.jpg"),
-    require("../../assets/images/work-img5.jpg"),
-    require("../../assets/images/work-img6.jpg")
-];
  
 const Work = () => {
     const token = localStorage.getItem("token")
     const dispatch = useDispatch()
 
     const albumData = useSelector((state) => state.albumReducer.album)
+
+    const [ photoIndex, setPhotoIndex ] = useState(0);
+    const [ isOpen, setIsOpen ] = useState(false);
 
     useEffect(() => {
         mixitup("#mix-wrapper", {
@@ -37,9 +31,19 @@ const Work = () => {
         });
         dispatch(fetchAlbum(token))
     }, [])
+    
+    let images = [];
 
-    const { photoIndex } = useState(0);
-    const { isOpen } = useState(false);
+    {albumData.map((album) => (
+        images.push(`${album.thumbnail_image_url}`)
+    ))}
+    console.log(images, 'images')
+    const imageOnClick = (idx) => {
+        setPhotoIndex(idx)
+        console.log(idx, 'status')
+        setIsOpen(true)
+    }
+
     return (
         <section id="work" className="work-area ptb-80">
             <div className="container">
@@ -96,24 +100,26 @@ const Work = () => {
                 <div className="row m-0" id="mix-wrapper">
                     {albumData.map((album, idx) => (
                         <div 
-                            className="col-lg-4 col-md-6 mix brand p-0 mix-target"
+                            className="col-lg-4 col-md-6 col-sm-12 mix brand p-0 mix-target"
                         key={idx}>
-                            <div className="single-work">
-                                <img src={album.thumbnail_image_url} alt="work-img" />
+                            <div className="single-work" style={{textAlign: "center"}}>
+                                <img src={album.thumbnail_image_url} alt="work-img" style={{objectFit: "cover", height: "250px", margin: "auto"}} />
                                 
                                 <div className="work-content">
-                                    <h4>Creative Design</h4>
-                                    <ul>
+                                    <h4>{album.title}</h4>
+                                    <h6>{album.sub_title}</h6>
+                                    {/* <ul>
                                         <li><Link to="#">Design</Link></li>
                                         <li>.</li>
                                         <li><Link to="#">Brand</Link></li>
-                                    </ul>
+                                    </ul> */}
                                 </div>
                                 
                                 <Link 
                                     to="#" 
                                     className="popup-btn"
-                                    onClick={() => this.setState({ photoIndex: 0, isOpen: true })}
+                                    // onClick={() => this.setState({ photoIndex: 0, isOpen: true })}
+                                    onClick={() => imageOnClick(idx)}
                                 ><i className="fa fa-plus"></i></Link>
                             </div>
                         </div>
@@ -263,25 +269,19 @@ const Work = () => {
                     </div>
                 </div>
             </div> */}
-            {/* {isOpen && (
+            {isOpen && (
                 <Lightbox
                     mainSrc={images[photoIndex]}
                     nextSrc={images[(photoIndex + 1) % images.length]}
                     prevSrc={images[(photoIndex + images.length - 1) % images.length]}
                     imageTitle={photoIndex + 1 + "/" + images.length}
-                    onCloseRequest={() => this.setState({ isOpen: false })}
-                    onMovePrevRequest={() =>
-                    this.setState({
-                        photoIndex: (photoIndex + images.length - 1) % images.length
-                    })
-                    }
+                    onCloseRequest={() => setIsOpen(false)}
+                    onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
                     onMoveNextRequest={() =>
-                    this.setState({
-                        photoIndex: (photoIndex + 1) % images.length
-                    })
+                        setPhotoIndex((photoIndex + 1) % images.length)
                     }
                 />
-            )} */}
+            )}
         </section>
     );
 }

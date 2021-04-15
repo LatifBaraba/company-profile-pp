@@ -41,7 +41,7 @@ class Team extends React.Component {
                     <div className="section-title">
                         {/* <h4>Pemuda Peduli</h4> */}
                         <h2>Pendiri <span>kami</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
                     </div>
                     
                     <div className="row">

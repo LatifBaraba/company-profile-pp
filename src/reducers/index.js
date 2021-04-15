@@ -7,6 +7,7 @@ import programReducer from '../redux/program/reducer'
 import beritaReducer from '../redux/berita/reducer'
 import partnerReducer from '../redux/partner/reducer'
 import albumReducer from '../redux/album/reducer'
+import beneficariesReducer from '../redux/beneficaries/reducer'
 
 const reducers = combineReducers({
     tokenReducer,
@@ -17,6 +18,7 @@ const reducers = combineReducers({
     beritaReducer,
     partnerReducer,
     albumReducer,
+    beneficariesReducer,
 })
 
 export default reducers
