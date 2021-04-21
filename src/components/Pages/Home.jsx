@@ -46,7 +46,7 @@ class HomeTwo extends React.Component {
                 {/* Skill Area */}
                 {/* <Skill /> */}
                 {/* Fact Area */}
-                <Funfact />
+                {/* <Funfact /> */}
                 {/* Team Area */}
                 {/* <Team /> */}
                 {/* How We Work */}

@@ -5,6 +5,7 @@ import Preloader from './components/Common/Preloader';
 import Home from './components/Pages/Home';
 import Blog from './components/Pages/Blog';
 import BlogDetails from './components/Pages/BlogDetails';
+import LinkDonasi from './components/Pages/LinkDonasi';
 import { useDispatch } from 'react-redux'
 import { fetchToken } from './redux/token/action'
 const App = () => {
@@ -42,8 +43,9 @@ const App = () => {
                 {loading ? <Preloader /> : ''}
                 <Navigation />
                 <Route path="/" exact component={Home} />
-                <Route path="/blog" exact component={Blog} />
-                <Route path="/blog-details" exact component={BlogDetails} />
+                <Route path="/link-donasi" exact component={LinkDonasi}/>
+                {/* <Route path="/blog" exact component={Blog} />
+                <Route path="/blog-details" exact component={BlogDetails} /> */}
             </React.Fragment>
         </Router>
     )

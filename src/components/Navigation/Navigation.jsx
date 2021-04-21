@@ -32,18 +32,18 @@ class Navigation extends React.Component {
 
         if (!(window.location.pathname === '/blog' || window.location.pathname === '/blog-details')){
             let mainNavLinks = document.querySelectorAll("nav ul li a");
-
+            console.log(mainNavLinks)
             window.addEventListener("scroll", () => {
                 let fromTop = window.scrollY;
             
                 mainNavLinks.forEach(link => {
                     let section = document.querySelector(link.hash);
                 
-                    // if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
-                    //     link.classList.add("active");
-                    // } else {
-                    //     link.classList.remove("active");
-                    // }
+                    if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+                        link.classList.add("active");
+                    } else {
+                        link.classList.remove("active");
+                    }
                 });
             });
         }
@@ -79,13 +79,13 @@ class Navigation extends React.Component {
                             Program
                         </Link>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <Link 
                             className="nav-link" 
                             to="/#team"
                             onClick={() => this.goToId("/#team")}
                         >Team</Link>
-                    </li>
+                    </li> */}
                     {/* <li className="nav-item">
                         <Link  
                             className="nav-link" 
@@ -165,7 +165,8 @@ class Navigation extends React.Component {
                     <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#contact">Contact</AnchorLink>
                 </li>
                 <li className="nav-item">
-                    <button className="btn btn-primary btn-donasi">Donasi!</button>
+                    <button className="btn btn-primary btn-donasi" onClick={() => history.push('/link-donasi')}>Donasi!</button>
+                    {/* <a href="#" onClick={() => {this.handleClick}}>click me</a> */}
                 </li>
             </ul>
         );
@@ -181,7 +182,7 @@ class Navigation extends React.Component {
                     <Link 
                         className="navbar-brand" 
                         to="/"
-                        onClick={() => window.location.refresh()}
+                        // onClick={() => window.location.refresh()}
                     >
                         <span>PemudaPeduli</span>
                     </Link>

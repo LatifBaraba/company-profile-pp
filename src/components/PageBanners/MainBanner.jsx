@@ -27,8 +27,9 @@ const MainBanner = (props) => {
     useEffect(() => {
         dispatch(fetchBanner(token))
     }, [])
-
+    
     const bannerData = useSelector((state) => state.bannerReducer.banner)
+    console.log(bannerData, 'bdbd')
     return (
         <>
         {bannerData.length > 0 &&
@@ -69,7 +70,7 @@ const MainBanner = (props) => {
                                                                 ? "animated fadeInDown slow opacityOne" : ''
                                                         }
                                                     >
-                                                        {data.text}
+                                                        {data.description}
                                                     </p>
                                                     <AnchorLink 
                                                         href="#about" 

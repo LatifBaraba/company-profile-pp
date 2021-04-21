@@ -18,9 +18,6 @@ const options = {
     responsive:{
         0:{
             items:1,
-        },
-        768:{
-            items:2,
         }
     }
 }
@@ -48,7 +45,7 @@ const Beneficaries = () => {
                         <OwlCarousel className="blog-slider owl-carousel owl-theme" {...options}>
                             {beneficariesData.map((data, idx) => (
                                 <div className="col-lg-12 col-md-12" key={idx} id={data.id}>
-                                    <div className="single-blog-item" style={{backgroundImage: `url(${data.thumbnail_image_url})`, width:"100%", height:"100%"}}>
+                                    <div className="single-blog-item" style={{backgroundImage: `url(${data.thumbnail_image_url})`, width:"100%", height:"600px"}}>
                                         {/* <span>Business & Tech</span> */}
                                         {/* <h4><Link to="#">The best gear for starting Link small business</Link></h4> */}
                                         {/* <h4>The best gear for starting Link small business</h4> */}

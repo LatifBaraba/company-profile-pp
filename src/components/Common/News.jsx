@@ -84,7 +84,7 @@ const News = () => {
                                         <span>{data.title}</span>
                                         {/* <h4><Link to="#">The best gear for starting Link small business</Link></h4> */}
                                         <h4>{data.sub_title}</h4>
-                                        {/* <p> Fusce vitae nulla at lorem pret ium semper. Curab itur laoreet, lectus ac digni ssim vest ibul lorem pretium semper lectus ac digni...</p> */}
+                                        <p>{data.description}</p>
                                         
                                         <Link to="#" title="Read More" className="link-btn"><i className="fa fa-arrow-right"></i></Link>
                                     </div>
