@@ -165,8 +165,8 @@ class Navigation extends React.Component {
                     <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#contact">Contact</AnchorLink>
                 </li>
                 <li className="nav-item">
-                    <button className="btn btn-primary btn-donasi" onClick={() => history.push('/link-donasi')}>Donasi!</button>
-                    {/* <a href="#" onClick={() => {this.handleClick}}>click me</a> */}
+                    <button className="btn btn-primary btn-donasi">Donasi!</button>
+                    {/* <a href="/link-donasi">click me</a> */}
                 </li>
             </ul>
         );
