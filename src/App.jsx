@@ -38,16 +38,20 @@ const App = () => {
     }
 
     return (
+        <>
         <Router onUpdate={hashLinkScroll}>
             <React.Fragment>
                 {loading ? <Preloader /> : ''}
                 <Navigation />
                 <Route path="/" exact component={Home} />
-                <Route path="/link-donasi" exact component={LinkDonasi}/>
                 {/* <Route path="/blog" exact component={Blog} />
                 <Route path="/blog-details" exact component={BlogDetails} /> */}
             </React.Fragment>
         </Router>
+        <Router>
+            <Route path="/link-donasi" component={LinkDonasi}/>
+        </Router>
+        </>
     )
 }
 

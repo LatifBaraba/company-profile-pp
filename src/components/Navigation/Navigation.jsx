@@ -39,11 +39,11 @@ class Navigation extends React.Component {
                 mainNavLinks.forEach(link => {
                     let section = document.querySelector(link.hash);
                 
-                    if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
-                        link.classList.add("active");
-                    } else {
-                        link.classList.remove("active");
-                    }
+                    // if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+                    //     link.classList.add("active");
+                    // } else {
+                    //     link.classList.remove("active");
+                    // }
                 });
             });
         }
@@ -129,7 +129,9 @@ class Navigation extends React.Component {
                         >Contact</Link>
                     </li>
                 </ul>
-            );
+            )
+        } else if (window.location.pathname === '/link-donasi') {
+            return 
         }
 
         return (
@@ -164,10 +166,12 @@ class Navigation extends React.Component {
                 <li className="nav-item">
                     <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#contact">Contact</AnchorLink>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                     <button className="btn btn-primary btn-donasi">Donasi!</button>
-                    {/* <a href="/link-donasi">click me</a> */}
-                </li>
+                </li> */}
+                <Link to="/link-donasi">
+                    <button className="btn btn-primary btn-donasi" style={{marginLeft:"15px"}}>Donasi!</button>
+                </Link>
             </ul>
         );
     }

@@ -431,7 +431,7 @@ Main Header CSS
 
             .btn-donasi {
                 padding: 2px 15px;
-                margin-top: 5px;
+                margin-left: 20px;
             }
         }
 
@@ -2484,4 +2484,24 @@ Go Top CSS
 .lfm__typing_effect {
     display: inline-block;
     padding-left: 12px;
+}
+
+.link-donasi {
+    margin-top: 20vh;
+    height: 80vh;
+    padding: 0 20%;
+    .donasi-title {
+        // height: 40%;
+        text-align:center; 
+        vertical-align: middle;
+    }
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 60%;
+        li {
+            margin-top: 40%;
+        }
+    }
 }

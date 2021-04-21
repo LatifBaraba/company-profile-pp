@@ -826,6 +826,18 @@ $template_color: #ff2c57;
             }
         }
     }
+    .link-donasi {
+        padding: 0;
+        ul {
+            flex-direction: column;
+            justify-content: center;
+            li {
+                text-align: center;
+                padding: 10px;
+                margin-top: 0;
+            }
+        }
+    }
 }
 
 @media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {
