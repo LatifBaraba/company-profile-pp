@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel3';
-import { fetchDonasi } from '../../redux/donasi/action'
-import { useDispatch, useSelector } from 'react-redux'
 
 const options = {
     loop: false,
@@ -31,14 +29,8 @@ const options = {
  
 const Welcome = (props) => {
 
-    const token = localStorage.getItem("token")
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(fetchDonasi(token))
-    }, [])
-
-    const donasiData = useSelector((state) => state.donasiReducer.donasi)
+    const donasiData = props.data;
+    
     return (
         <section id="welcome" className="welcome-area ptb-80">
             <div className="container">

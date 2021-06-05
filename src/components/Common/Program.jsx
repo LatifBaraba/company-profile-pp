@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel3';
-import { fetchProgram } from '../../redux/program/action'
-import { useDispatch, useSelector } from 'react-redux'
 
 const options = {
     loop: false,
@@ -29,15 +27,8 @@ const options = {
     }
 }
  
-const Program = () => {
-    const token = localStorage.getItem("token")
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(fetchProgram(token))
-    }, [])
-
-    const programData = useSelector((state) => state.programReducer.program)
+const Program = (props) => {
+    const programData = props.data;
 
     return (
         <section id="program" className="welcome-area ptb-80">

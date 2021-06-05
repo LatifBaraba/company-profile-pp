@@ -4,8 +4,6 @@ import '../../../node_modules/react-modal-video/scss/modal-video.scss';
 import { Link } from 'react-router-dom';
 import aboutImg from '../../assets/images/about.jpg';
 import OwlCarousel from 'react-owl-carousel3';
-import { fetchTentang } from '../../redux/tentang/action'
-import { useDispatch, useSelector } from 'react-redux'
 
 const options = {
     loop: true,
@@ -26,16 +24,10 @@ const options = {
     }
 }
  
-const About = () => {
+const About = (props) => {
 
-    const token = localStorage.getItem("token")
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(fetchTentang(token))
-    }, [])
-
-    const tentangData = useSelector((state) => state.tentangReducer.tentang)
+    const tentangData = props.data;
+    
     return (
         <section id="about" className="about-area ptb-80 bg-f6f6f6">
             <div className="container">

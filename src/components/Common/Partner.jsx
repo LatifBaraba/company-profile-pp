@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel3';
-import { fetchPartner } from '../../redux/partner/action'
-import { useDispatch, useSelector } from 'react-redux'
 
 const options = {
     loop: false,
@@ -30,16 +28,10 @@ const options = {
     }
 }
  
-const Partner = () => {
+const Partner = (props) => {
 
-    const token = localStorage.getItem("token")
-    const dispatch = useDispatch()
+    const partnerData = props.data;
 
-    useEffect(() => {
-        dispatch(fetchPartner(token))
-    }, [])
-
-    const partnerData = useSelector((state) => state.partnerReducer.partner)
     return (
         <section id="partner" className="work-area ptb-80">
             <div className="partner-area ptb-80">

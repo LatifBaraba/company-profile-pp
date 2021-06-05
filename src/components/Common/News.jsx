@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel3';
-import { fetchBerita } from '../../redux/berita/action'
-import { useDispatch, useSelector } from 'react-redux'
 
 const options = {
     loop: false,
@@ -29,16 +27,10 @@ const options = {
     }
 }
  
-const News = () => {
+const News = (props) => {
 
-    const token = localStorage.getItem("token")
-    const dispatch = useDispatch()
+    const beritaData = props.data;
 
-    useEffect(() => {
-        dispatch(fetchBerita(token))
-    }, [])
-
-    const beritaData = useSelector((state) => state.beritaReducer.berita)
     return (
         <section id="news" className="news-area ptb-80" style={{backgroundColor:'#f6f6f6'}}>
             <div className="container">

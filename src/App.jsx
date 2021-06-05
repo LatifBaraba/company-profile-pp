@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navigation from './components/Navigation/Navigation';
 import Preloader from './components/Common/Preloader';
 import Home from './components/Pages/Home';
-import Blog from './components/Pages/Blog';
-import BlogDetails from './components/Pages/BlogDetails';
+// import Blog from './components/Pages/Blog';
+// import BlogDetails from './components/Pages/BlogDetails';
 import LinkDonasi from './components/Pages/LinkDonasi';
 import { useDispatch } from 'react-redux'
 import { fetchToken } from './redux/token/action'

@@ -3,14 +3,10 @@ import Lightbox from "react-image-lightbox";
 import 'react-image-lightbox/style.css';
 import { Link } from 'react-router-dom';
 import mixitup from "mixitup";
-import { fetchAlbum } from '../../redux/album/action'
-import { useDispatch, useSelector } from 'react-redux'
  
-const Work = () => {
-    const token = localStorage.getItem("token")
-    const dispatch = useDispatch()
+const Work = (props) => {
 
-    const albumData = useSelector((state) => state.albumReducer.album)
+    const albumData = props.data;
 
     const [ photoIndex, setPhotoIndex ] = useState(0);
     const [ isOpen, setIsOpen ] = useState(false);
@@ -29,7 +25,6 @@ const Work = () => {
                 target: ".mix-target"
             }
         });
-        dispatch(fetchAlbum(token))
     }, [])
     
     let images = [];
@@ -37,10 +32,10 @@ const Work = () => {
     {albumData.map((album) => (
         images.push(`${album.thumbnail_image_url}`)
     ))}
-    console.log(images, 'images')
+    // console.log(images, 'images')
     const imageOnClick = (idx) => {
         setPhotoIndex(idx)
-        console.log(idx, 'status')
+        // console.log(idx, 'status')
         setIsOpen(true)
     }
 

@@ -21,15 +21,9 @@ const options = {
 }
 
 const MainBanner = (props) => {
-    const token = localStorage.getItem("token")
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(fetchBanner(token))
-    }, [])
+   
+    const bannerData = props.data;
     
-    const bannerData = useSelector((state) => state.bannerReducer.banner)
-    console.log(bannerData, 'bdbd')
     return (
         <>
         {bannerData.length > 0 &&

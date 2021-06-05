@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import OwlCarousel from 'react-owl-carousel3';
-import { fetchBeneficaries } from '../../redux/beneficaries/action'
-import { useDispatch, useSelector } from 'react-redux'
 
 const options = {
     loop: false,
@@ -22,16 +20,10 @@ const options = {
     }
 }
  
-const Beneficaries = () => {
+const Beneficaries = (props) => {
 
-    const token = localStorage.getItem("token")
-    const dispatch = useDispatch()
+    const beneficariesData = props.data;
 
-    useEffect(() => {
-        dispatch(fetchBeneficaries(token))
-    }, [])
-
-    const beneficariesData = useSelector((state) => state.beneficariesReducer.beneficaries)
     return (
         <section id="beneficaries" className="about-area ptb-80 bg-f6f6f6">
             <div className="container">
