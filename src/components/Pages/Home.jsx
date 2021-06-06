@@ -38,7 +38,7 @@ const HomeTwo = () => {
     const token = localStorage.getItem("token")
     const dispatch = useDispatch()
 
-    useEffect(async () => {
+    useEffect(() => {
         dispatch(fetchDonasi(token))
         dispatch(fetchBanner(token))
         dispatch(fetchTentang(token))
@@ -47,7 +47,7 @@ const HomeTwo = () => {
         dispatch(fetchAlbum(token))
         dispatch(fetchBeneficaries(token))
         dispatch(fetchPartner(token))
-    }, []);
+    },[]);
 
     const donasiData = useSelector((state) => state.donasiReducer.donasi)
     const bannerData = useSelector((state) => state.bannerReducer.banner)
