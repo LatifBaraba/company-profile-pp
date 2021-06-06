@@ -47,7 +47,7 @@ const HomeTwo = () => {
         dispatch(fetchAlbum(token))
         dispatch(fetchBeneficaries(token))
         dispatch(fetchPartner(token))
-    },[]);
+    }, [token]);
 
     const donasiData = useSelector((state) => state.donasiReducer.donasi)
     const bannerData = useSelector((state) => state.bannerReducer.banner)
