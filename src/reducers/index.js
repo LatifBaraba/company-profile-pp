@@ -8,6 +8,7 @@ import beritaReducer from '../redux/berita/reducer'
 import partnerReducer from '../redux/partner/reducer'
 import albumReducer from '../redux/album/reducer'
 import beneficariesReducer from '../redux/beneficaries/reducer'
+import achievementReducer from '../redux/achievement/reducer'
 
 const reducers = combineReducers({
     tokenReducer,
@@ -19,6 +20,7 @@ const reducers = combineReducers({
     partnerReducer,
     albumReducer,
     beneficariesReducer,
+    achievementReducer,
 })
 
 export default reducers

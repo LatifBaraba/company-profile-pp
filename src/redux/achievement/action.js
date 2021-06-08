@@ -1,17 +1,17 @@
-import { GET_BANNER,
-    GET_BANNER_SUCCESS,
-    GET_BANNER_FAILURE,
-        } from '../actionTypes';
+import { GET_ACHIEVEMENT, 
+    GET_ACHIEVEMENT_SUCCESS, 
+    GET_ACHIEVEMENT_FAILURE,
+    } from '../actionTypes';
 import axios from 'axios';
 
-const URL = `${process.env.REACT_APP_BASE_URL}/banner/list`;
+const URL = `${process.env.REACT_APP_BASE_URL}/achievement/list`;
 
-export function fetchBanner(token) {
+export function fetchAchievement(token) {
     return (dispatch) => {
         axios(URL, {
             method: 'POST',
             data: {
-                limit: "100",
+                limit: "4",
                 offset: "0",
                 filters: [
                     {
@@ -32,26 +32,26 @@ export function fetchBanner(token) {
             }
         })
         .then(res => {
-            dispatch(getBannerSuccess(res.data.data));
-            console.log(res.data.data, 'banner')
+            dispatch(getAchievementSuccess(res.data.data));
+            console.log(res.data.data, 'achievement')
         })
         .catch(err => {
-            dispatch(getBannerFailure(err));
             console.log(err)
+            dispatch(getAchievementFailure(err));
         });
     };
 };
 
-// Get Banner
-const getBannerSuccess = (payload) => ({
-    type: GET_BANNER_SUCCESS,
-    payload
+// Get Achievement
+const getAchievementSuccess = (payload) => ({
+type: GET_ACHIEVEMENT_SUCCESS,
+payload
 });
 
-const getBannerFailure = () => ({
-    type: GET_BANNER_FAILURE
+const getAchievementFailure = () => ({
+type: GET_ACHIEVEMENT_FAILURE
 });
 
-const getBanner = () => ({
-    type: GET_BANNER
+const getAchievement = () => ({
+type: GET_ACHIEVEMENT
 });

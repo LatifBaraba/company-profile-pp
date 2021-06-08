@@ -45,7 +45,9 @@ const Partner = (props) => {
                                 {partnerData.map((data, idx) => (
                                     <div className="col-lg-12 col-md-12">
                                         <div className="item" key={idx} id={data.id}>
-                                            <Link to="#"><img src={`${data.thumbnail_image_url}`} alt="partner" /></Link>
+                                            {/* <Link to="#"> */}
+                                                <img src={`${data.thumbnail_image_url}`} alt="partner" />
+                                            {/* </Link> */}
                                             {/* <span>{data.name}</span> */}
                                         </div>
                                     </div>

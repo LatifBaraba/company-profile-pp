@@ -6,7 +6,7 @@ import About from '../Common/About';
 // import WhoWeAre from '../Common/WhoWeAre';
 // import Ctr from '../Common/Ctr';
 // import Skill from '../Common/Skill';
-// import Funfact from '../Common/Funfact';
+import Funfact from '../Common/Funfact';
 // import Team from '../Common/Team';
 // import HowWeWork from '../Common/HowWeWork';
 // import Services from '../Common/Services';
@@ -14,7 +14,7 @@ import About from '../Common/About';
 import Work from '../Common/Work';
 // import Price from '../Common/Price';
 // import Faq from '../Common/Faq';
-// import Testimonial from '../Common/Testimonial';
+import Testimonial from '../Common/Testimonial';
 // import Blog from '../Common/Blog';
 import Partner from '../Common/Partner';
 // import Subscribe from '../Common/Subscribe';
@@ -32,6 +32,7 @@ import { fetchBerita } from '../../redux/berita/action';
 import { fetchAlbum } from '../../redux/album/action';
 import { fetchBeneficaries } from '../../redux/beneficaries/action';
 import { fetchPartner } from '../../redux/partner/action';
+import { fetchAchievement } from '../../redux/achievement/action';
 import { useDispatch, useSelector } from 'react-redux';
  
 const HomeTwo = () => {
@@ -47,6 +48,7 @@ const HomeTwo = () => {
         dispatch(fetchAlbum(token))
         dispatch(fetchBeneficaries(token))
         dispatch(fetchPartner(token))
+        dispatch(fetchAchievement(token))
     }, [token]);
 
     const donasiData = useSelector((state) => state.donasiReducer.donasi)
@@ -57,7 +59,8 @@ const HomeTwo = () => {
     const albumData = useSelector((state) => state.albumReducer.album)
     const beneficariesData = useSelector((state) => state.beneficariesReducer.beneficaries)
     const partnerData = useSelector((state) => state.partnerReducer.partner)
-
+    const achievementData = useSelector((state) => state.achievementReducer.achievement)
+ 
     return (
         <React.Fragment>
             {/* Main Banner */}
@@ -77,7 +80,7 @@ const HomeTwo = () => {
             {/* Skill Area */}
             {/* <Skill /> */}
             {/* Fact Area */}
-            {/* <Funfact /> */}
+            <Funfact data={achievementData}/>
             {/* Team Area */}
             {/* <Team /> */}
             {/* How We Work */}
@@ -96,7 +99,7 @@ const HomeTwo = () => {
             {/* FAQ Area */}
             {/* <Faq /> */}
             {/* Testimonials Area */}
-            {/* <Testimonial /> */}
+            <Testimonial />
             {/* Blog Area */}
             {/* <Blog /> */}
             {/* Partner Area */}
