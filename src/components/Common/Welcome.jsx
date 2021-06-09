@@ -48,7 +48,8 @@ const Welcome = (props) => {
                                 <div className="col-lg-12 col-md-12" key={idx} id={data.id}>
                                     <div className="single-blog-item" style={{backgroundImage: `url(${data.thumbnail_image_url})`}}>
                                         <span>{data.title}</span>
-                                        <h4><Link to="#" style={{color:'white'}}>{data.sub_title}</Link></h4>
+                                        {/* <h4><Link to="#" style={{color:'white'}}>{data.sub_title}</Link></h4> */}
+                                        <h4>{data.sub_title}</h4>
                                         {/* <h4>The best gear for starting Link small business</h4> */}
                                         <p>{data.description}</p> 
                                         

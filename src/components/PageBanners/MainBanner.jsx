@@ -27,7 +27,7 @@ const buttonLeft = (title_button_left, deeplink_left, isVisible) => {
             // <AnchorLink href={`${deeplink_left ? deeplink_left : "#"} `} className={`btn btn-primary ${isVisible ? "animated fadeInDown slow opacityOne" : ""} `}>
             //     {title_button_left}
             // </AnchorLink>
-            <a href={`${deeplink_left ? deeplink_left : "#"} `} className={`btn btn-primary ${isVisible ? "animated fadeInDown slow opacityOne" : ""} `} target="_blank" rel="noopener noreferrer">
+            <a href={`${deeplink_left ? deeplink_left : "#"} `} className={`btn btn-primary m-2 ${isVisible ? "animated fadeInDown slow opacityOne" : ""} `} target="_blank" rel="noopener noreferrer">
                 {title_button_left}
             </a>
         )
@@ -40,7 +40,7 @@ const buttonRight = (title_button_right, deeplink_right, isVisible) => {
             // <AnchorLink href={`${deeplink_right ? deeplink_right : "#"} `} className={`btn btn-primary view-work ${isVisible ? "animated fadeInDown slow opacityOne" : ""}`}>
             //    {title_button_right}
             // </AnchorLink>
-            <a href={`${deeplink_right ? deeplink_right : "#"} `} className={`btn btn-primary ${isVisible ? "animated fadeInDown slow opacityOne" : ""} `} target="_blank" rel="noopener noreferrer">
+            <a href={`${deeplink_right ? deeplink_right : "#"} `} className={`btn btn-primary m-2 ${isVisible ? "animated fadeInDown slow opacityOne" : ""} `} target="_blank" rel="noopener noreferrer">
                 {title_button_right}
             </a>
         )

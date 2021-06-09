@@ -23,6 +23,7 @@ import Footer from '../Common/Footer';
 import GoTop from '../Common/GoTop';
 import Program from '../Common/Program';
 import News from '../Common/News';
+import Donasi from '../Common/Donasi';
 import Beneficaries from '../Common/Beneficaries';
 import { fetchDonasi } from '../../redux/donasi/action';
 import { fetchBanner } from '../../redux/banner/action';
@@ -33,6 +34,7 @@ import { fetchAlbum } from '../../redux/album/action';
 import { fetchBeneficaries } from '../../redux/beneficaries/action';
 import { fetchPartner } from '../../redux/partner/action';
 import { fetchAchievement } from '../../redux/achievement/action';
+import { fetchTestimoni } from '../../redux/testimoni/action';
 import { useDispatch, useSelector } from 'react-redux';
  
 const HomeTwo = () => {
@@ -49,6 +51,7 @@ const HomeTwo = () => {
         dispatch(fetchBeneficaries(token))
         dispatch(fetchPartner(token))
         dispatch(fetchAchievement(token))
+        dispatch(fetchTestimoni(token))
     }, [token]);
 
     const donasiData = useSelector((state) => state.donasiReducer.donasi)
@@ -60,6 +63,7 @@ const HomeTwo = () => {
     const beneficariesData = useSelector((state) => state.beneficariesReducer.beneficaries)
     const partnerData = useSelector((state) => state.partnerReducer.partner)
     const achievementData = useSelector((state) => state.achievementReducer.achievement)
+    const testimoniData = useSelector((state) => state.testimoniReducer.testimoni)
  
     return (
         <React.Fragment>
@@ -67,6 +71,8 @@ const HomeTwo = () => {
             <MainBanner data={bannerData}/>
             {/* Welcome Area */}
             <Welcome data={donasiData} />
+            {/* Donasi Area */}
+            <Donasi data={donasiData} />
             {/* About Area */}
             <About data={tentangData}/>
             {/* About Area */}
@@ -99,7 +105,7 @@ const HomeTwo = () => {
             {/* FAQ Area */}
             {/* <Faq /> */}
             {/* Testimonials Area */}
-            <Testimonial />
+            <Testimonial data={testimoniData}/>
             {/* Blog Area */}
             {/* <Blog /> */}
             {/* Partner Area */}
