@@ -29,8 +29,8 @@ const options = {
  
 const Donasi = (props) => {
 
-    const donasiData = props.data;
-    
+    const donasiDuaData = props.data;
+
     return (
         <section id="welcome" className="welcome-area ptb-80">
             <div className="container">
@@ -42,9 +42,9 @@ const Donasi = (props) => {
                 </div>
                 
                 <div className="row">
-                    {donasiData.length > 0 &&
+                    {donasiDuaData.length > 0 &&
                         <OwlCarousel className="blog-slider owl-carousel owl-theme" {...options}>
-                            {donasiData.map((data, idx) => (
+                            {donasiDuaData.map((data, idx) => (
                                 <div className="col-lg-12 col-md-12" key={idx} id={data.id}>
                                     <div className="single-blog-item" style={{backgroundImage: `url(${data.thumbnail_image_url})`}}>
                                         <span>{data.title}</span>

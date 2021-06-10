@@ -26,6 +26,7 @@ import News from '../Common/News';
 import Donasi from '../Common/Donasi';
 import Beneficaries from '../Common/Beneficaries';
 import { fetchDonasi } from '../../redux/donasi/action';
+import { fetchDonasi2 } from '../../redux/donasi/action';
 import { fetchBanner } from '../../redux/banner/action';
 import { fetchTentang } from '../../redux/tentang/action';
 import { fetchProgram } from '../../redux/program/action';
@@ -43,6 +44,7 @@ const HomeTwo = () => {
 
     useEffect(() => {
         dispatch(fetchDonasi(token))
+        dispatch(fetchDonasi2(token))
         dispatch(fetchBanner(token))
         dispatch(fetchTentang(token))
         dispatch(fetchProgram(token))
@@ -55,6 +57,7 @@ const HomeTwo = () => {
     }, [token]);
 
     const donasiData = useSelector((state) => state.donasiReducer.donasi)
+    const donasi2Data = useSelector((state) => state.donasiReducer.donasi2)
     const bannerData = useSelector((state) => state.bannerReducer.banner)
     const tentangData = useSelector((state) => state.tentangReducer.tentang)
     const programData = useSelector((state) => state.programReducer.program)
@@ -64,7 +67,7 @@ const HomeTwo = () => {
     const partnerData = useSelector((state) => state.partnerReducer.partner)
     const achievementData = useSelector((state) => state.achievementReducer.achievement)
     const testimoniData = useSelector((state) => state.testimoniReducer.testimoni)
- 
+
     return (
         <React.Fragment>
             {/* Main Banner */}
@@ -72,7 +75,7 @@ const HomeTwo = () => {
             {/* Welcome Area */}
             <Welcome data={donasiData} />
             {/* Donasi Area */}
-            <Donasi data={donasiData} />
+            <Donasi data={donasi2Data} />
             {/* About Area */}
             <About data={tentangData}/>
             {/* About Area */}
