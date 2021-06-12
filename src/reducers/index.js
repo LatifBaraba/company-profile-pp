@@ -10,6 +10,7 @@ import albumReducer from '../redux/album/reducer'
 import beneficariesReducer from '../redux/beneficaries/reducer'
 import achievementReducer from '../redux/achievement/reducer'
 import testimoniReducer from '../redux/testimoni/reducer'
+import menuReducer from '../redux/menu/reducer'
 
 const reducers = combineReducers({
     tokenReducer,
@@ -22,7 +23,8 @@ const reducers = combineReducers({
     albumReducer,
     beneficariesReducer,
     achievementReducer,
-    testimoniReducer
+    testimoniReducer,
+    menuReducer
 })
 
 export default reducers
