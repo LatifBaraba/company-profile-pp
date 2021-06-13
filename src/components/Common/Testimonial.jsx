@@ -20,9 +20,10 @@ const Testimonial = (props) => {
                         <div className="col-lg-4 col-md-6">
                             <div className="single-feedback">
                                 <div className="client-info">
-                                    {/* <div className="client-pic">
-                                        <img src={clientImgOne} alt="client-avatar" />
-                                    </div> */}
+                                    <div className="client-pic" key={idx}>
+                                        {/* <img src={clientImgOne} alt="client-avatar" /> */}
+                                        <img src={data.thumbnail_photo_url} alt="client-avatar" />
+                                    </div>
 
                                     <div className="client-title">
                                         <h4>{data.name}</h4>

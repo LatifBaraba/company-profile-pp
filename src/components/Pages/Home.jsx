@@ -37,6 +37,8 @@ import { fetchPartner } from '../../redux/partner/action';
 import { fetchAchievement } from '../../redux/achievement/action';
 import { fetchTestimoni } from '../../redux/testimoni/action';
 import { fetchMenu } from '../../redux/menu/action';
+import { fetchHubungi } from '../../redux/hubungi/action';
+import { fetchKontak } from '../../redux/kontak/action';
 import { useDispatch, useSelector } from 'react-redux';
  
 const HomeTwo = () => {
@@ -56,7 +58,9 @@ const HomeTwo = () => {
         dispatch(fetchAchievement(token))
         dispatch(fetchTestimoni(token))
         dispatch(fetchMenu(token))
-    }, [token]);
+        dispatch(fetchKontak(token))
+        dispatch(fetchHubungi(token))
+    }, []);
 
     const donasiData = useSelector((state) => state.donasiReducer.donasi)
     const donasi2Data = useSelector((state) => state.donasiReducer.donasi2)
@@ -70,6 +74,8 @@ const HomeTwo = () => {
     const achievementData = useSelector((state) => state.achievementReducer.achievement)
     const testimoniData = useSelector((state) => state.testimoniReducer.testimoni)
     const menuData = useSelector((state) => state.menuReducer.menu)
+    const kontakData = useSelector((state) => state.kontakReducer.kontak)
+    const hubungiData = useSelector((state) => state.hubungiReducer.hubungi)
 
     return (
         <React.Fragment>
@@ -119,9 +125,9 @@ const HomeTwo = () => {
             {/* Subscribe Area */}
             {/* <Subscribe /> */}
             {/* Contact Area */}
-            <Contact data={menuData}/>
+            <Contact menu={menuData} kontak={kontakData} hubungi={hubungiData}/>
             {/* Footer Area */}
-            <Footer />
+            <Footer/>
             <GoTop scrollStepInPx="50" delayInMs="16.66" />
         </React.Fragment>
     );
