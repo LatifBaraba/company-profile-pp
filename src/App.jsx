@@ -43,7 +43,7 @@ const App = () => {
             <React.Fragment>
                 {loading ? <Preloader /> : ''}
                 <Navigation />
-                <Route path="/" exact component={Home} />
+                <Route path="/" component={Home} />
                 {/* <Route path="/blog" exact component={Blog} />
                 <Route path="/blog-details" exact component={BlogDetails} /> */}
             </React.Fragment>

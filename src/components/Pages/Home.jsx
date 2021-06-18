@@ -60,7 +60,8 @@ const HomeTwo = () => {
         dispatch(fetchMenu(token))
         dispatch(fetchKontak(token))
         dispatch(fetchHubungi(token))
-    }, []);
+
+    }, [!token]);
 
     const donasiData = useSelector((state) => state.donasiReducer.donasi)
     const donasi2Data = useSelector((state) => state.donasiReducer.donasi2)
