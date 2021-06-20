@@ -66,31 +66,15 @@ const MainBanner = (props) => {
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-lg-12 col-md-12">
-                                            <VisibilitySensor>
+                                            <VisibilitySensor delayedCall>
                                             {({ isVisible }) => (
                                                 <div className="main-banner-text">
-                                                    <h4 
-                                                        className={
-                                                            isVisible
-                                                                ? "animated fadeInDown slow opacityOne" : ''
-                                                        }
-                                                    >
+                                                    <h4 className={ isVisible ? "animated fadeInDown slow opacityOne" : ''}>
                                                         {data.title}
                                                     </h4>
-                                                    <h1 
-                                                        className={
-                                                            isVisible
-                                                                ? "animated fadeInDown slow opacityOne" : ''
-                                                        }
-                                                        dangerouslySetInnerHTML={{ __html: data.sub_title }}
-                                                    />
+                                                    <h1 className={ isVisible ? "animated fadeInDown slow opacityOne" : ''} dangerouslySetInnerHTML={{ __html: data.sub_title }}/>
 
-                                                    <p 
-                                                        className={
-                                                            isVisible
-                                                                ? "animated fadeInDown slow opacityOne" : ''
-                                                        }
-                                                    >
+                                                    <p className={ isVisible ? "animated fadeInDown slow opacityOne" : ''}>
                                                         {data.description}
                                                     </p>
                                                     {buttonLeft(data.title_button_left, data.deeplink_left, isVisible)}
