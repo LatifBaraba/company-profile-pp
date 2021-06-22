@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from './components/Navigation/Navigation';
 import Preloader from './components/Common/Preloader';
+import history from './history';
+
 import Home from './components/Pages/Home';
 // import Blog from './components/Pages/Blog';
 // import BlogDetails from './components/Pages/BlogDetails';
@@ -39,17 +41,15 @@ const App = () => {
 
     return (
         <>
-        <Router onUpdate={hashLinkScroll}>
-            <React.Fragment>
+        <Router onUpdate={hashLinkScroll} history={history}>
+            {/* <Switch> */}
                 {loading ? <Preloader /> : ''}
                 <Navigation />
-                <Route path="/" component={Home} />
+                <Route path="/" exact component={Home} />
                 {/* <Route path="/blog" exact component={Blog} />
                 <Route path="/blog-details" exact component={BlogDetails} /> */}
-            </React.Fragment>
-        </Router>
-        <Router>
-            <Route path="/link-donasi" component={LinkDonasi}/>
+                <Route path="/donasi" exact component={LinkDonasi}/>
+            {/* </Switch> */}
         </Router>
         </>
     )
