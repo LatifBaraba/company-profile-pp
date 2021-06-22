@@ -7,7 +7,7 @@ import About from '../Common/About';
 // import Ctr from '../Common/Ctr';
 // import Skill from '../Common/Skill';
 import Funfact from '../Common/Funfact';
-// import Team from '../Common/Team';
+import Team from '../Common/Team';
 // import HowWeWork from '../Common/HowWeWork';
 // import Services from '../Common/Services';
 // import WhyWeDifferent from '../Common/WhyWeDifferent';
@@ -39,6 +39,7 @@ import { fetchTestimoni } from '../../redux/testimoni/action';
 import { fetchMenu } from '../../redux/menu/action';
 import { fetchHubungi } from '../../redux/hubungi/action';
 import { fetchKontak } from '../../redux/kontak/action';
+import { fetchTeam } from '../../redux/team/action';
 import { useDispatch, useSelector } from 'react-redux';
  
 const HomeTwo = () => {
@@ -60,8 +61,9 @@ const HomeTwo = () => {
         dispatch(fetchMenu(token))
         dispatch(fetchKontak(token))
         dispatch(fetchHubungi(token))
+        dispatch(fetchTeam(token))
 
-    }, [!token]);
+    }, [token]);
 
     const donasiData = useSelector((state) => state.donasiReducer.donasi)
     const donasi2Data = useSelector((state) => state.donasiReducer.donasi2)
@@ -77,6 +79,7 @@ const HomeTwo = () => {
     const menuData = useSelector((state) => state.menuReducer.menu)
     const kontakData = useSelector((state) => state.kontakReducer.kontak)
     const hubungiData = useSelector((state) => state.hubungiReducer.hubungi)
+    const teamData = useSelector((state) => state.teamReducer.team)
 
     return (
         <React.Fragment>
@@ -101,7 +104,7 @@ const HomeTwo = () => {
             {/* Fact Area */}
             <Funfact data={achievementData}/>
             {/* Team Area */}
-            {/* <Team /> */}
+            <Team data={teamData}/>
             {/* How We Work */}
             {/* <HowWeWork /> */}
             {/* Services Area */}

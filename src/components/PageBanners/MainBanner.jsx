@@ -9,12 +9,12 @@ import { Link } from 'react-router-dom';
 const options = {
     items: 1,
     loop: false,
-    autoplay:true,
-    nav:true,
-    responsiveClass:true,
-    dots:false,
-    autoplayHoverPause:true,
-    mouseDrag:true,
+    autoplay: true,
+    nav: true,
+    responsiveClass: true,
+    dots: false,
+    autoplayHoverPause: true,
+    mouseDrag: true,
     navText: [
         "<i class='fa fa-angle-left'></i>",
         "<i class='fa fa-angle-right'></i>"

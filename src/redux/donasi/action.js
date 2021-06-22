@@ -40,7 +40,7 @@ export function fetchDonasi(token) {
         })
         .then(res => {
             dispatch(getDonasiSuccess(res.data.data));
-            console.log(res.data.data, "Donasi Rutin")
+            // console.log(res.data.data, "Donasi Rutin")
         })
         .catch(err => {
             console.log(err)

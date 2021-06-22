@@ -10,7 +10,7 @@ const Contact = (props) => {
     const menuData = props.menu;
     const kontakData = props.kontak;
     const hubungiData = props.hubungi;
-    
+
     return (
         <section id="contact" className="contact-area ptb-80 bg-f6f6f6">
             <div className="container">
@@ -29,16 +29,16 @@ const Contact = (props) => {
                             
                             <div className="col-lg-12">
                                 <div className="contact-one">
-                                    {/* <h4>SK Legalitas</h4> */}
-                                    <img src={data.sk_legalitas} alt=""/>
+                                    <h4>{data.sk_legalitas}</h4>
+                                    {/* <img src={data.sk_legalitas} alt=""/> */}
                                 </div>
                             </div>
                             <div className="col-lg-12">
                                 <div className="contact-one">
-                                    <Link>
+                                    {/* <Link> */}
                                         {/* <span>Jl. Sukawarna No.12, Husen Sastranegara, Kec. Cicendo, Kota Bandung, Jawa Barat 40173</span> */}
                                         <span>{data.address}</span>
-                                    </Link>
+                                    {/* </Link> */}
                                 </div>
                             </div>
                         </div>
