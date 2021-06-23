@@ -5,7 +5,7 @@ import '../../assets/css/style.scss';
 import '../../assets/css/responsive.scss';
 import React from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import { Link, withRouter  } from 'react-router-dom';
+import { Link, Redirect, withRouter  } from 'react-router-dom';
  
 class Navigation extends React.Component {
     state = {
@@ -130,50 +130,58 @@ class Navigation extends React.Component {
                     </li>
                 </ul>
             )
-        } else if (window.location.pathname === '/link-donasi') {
-            return 
-        }
+        } 
+        // else if (window.location.pathname == '/link-donasi') {
+            // return false
+            // console.log(window.location.pathname)
+        // }
 
-        return (
-            <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                    <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#home">Home</AnchorLink>
-                </li>
-                <li className="nav-item">
-                    <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#about">About</AnchorLink>
-                </li>
-                <li className="nav-item">
-                    <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#program">Program</AnchorLink>
-                </li>
-                {/* <li className="nav-item">
-                    <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#team">Team</AnchorLink>
-                </li> */}
-                {/* <li className="nav-item">
-                    <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#services">Services</AnchorLink>
-                </li>
-                <li className="nav-item">
-                    <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#work">Work</AnchorLink>
-                </li> */}
-                {/* <li className="nav-item">
-                    <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#price">Price</AnchorLink>
-                </li> */}
-                {/* <li className="nav-item">
-                    <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#blog">Blog</AnchorLink>
-                </li> */}
-                <li className="nav-item">
-                    <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#partner">Partner</AnchorLink>
-                </li>
-                <li className="nav-item">
-                    <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#contact">Contact</AnchorLink>
-                </li>
-                {/* <li className="nav-item">
-                    <button className="btn btn-primary btn-donasi">Donasi!</button>
-                </li> */}
-                <Link to="/link-donasi">
-                    <button className="btn btn-primary btn-donasi" style={{marginLeft:"15px"}}>Donasi!</button>
-                </Link>
-            </ul>
-        );
+        if (window.location.pathname == '/donasi') {
+            return
+        } else {
+            return (
+                <ul className="navbar-nav ml-auto">
+                    <li className="nav-item">
+                        <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#home">Home</AnchorLink>
+                    </li>
+                    <li className="nav-item">
+                        <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#about">About</AnchorLink>
+                    </li>
+                    <li className="nav-item">
+                        <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#program">Program</AnchorLink>
+                    </li>
+                    {/* <li className="nav-item">
+                        <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#team">Team</AnchorLink>
+                    </li> */}
+                    {/* <li className="nav-item">
+                        <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#services">Services</AnchorLink>
+                    </li>
+                    <li className="nav-item">
+                        <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#work">Work</AnchorLink>
+                    </li> */}
+                    {/* <li className="nav-item">
+                        <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#price">Price</AnchorLink>
+                    </li> */}
+                    {/* <li className="nav-item">
+                        <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#blog">Blog</AnchorLink>
+                    </li> */}
+                    <li className="nav-item">
+                        <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#partner">Partner</AnchorLink>
+                    </li>
+                    <li className="nav-item">
+                        <AnchorLink onClick={this.toggleNavbar} offset={() => 85} className="nav-link" href="#contact">Contact</AnchorLink>
+                    </li>
+                    {/* <li className="nav-item">
+                        <button className="btn btn-primary btn-donasi">Donasi!</button>
+                    </li> */}
+                    <Link className="btn btn-primary btn-donasi" to="/donasi">Donasi
+                        {/* <a type="button" className="btn btn-primary btn-donasi" href="">Donasi</a> */}
+                        {/* <Link type="button" className="btn btn-primary btn-donasi" to="/link-donasi">Donasi</Link> */}
+                        {/* <button className="btn btn-primary btn-donasi" style={{marginLeft:"15px"}}>Donasi!</button> */}
+                    </Link>
+                </ul>
+            );
+        }
     }
 
     render(){
