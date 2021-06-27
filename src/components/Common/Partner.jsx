@@ -37,7 +37,7 @@ const Partner = (props) => {
             <div className="partner-area ptb-80">
                 <div className="container">
                     <div className="section-title">
-                        <h2>Partner <span>kami</span></h2>
+                        <h2>Partner <span>Kami</span></h2>
                     </div>
                     <div className="row">
                         {partnerData.length > 0 &&
