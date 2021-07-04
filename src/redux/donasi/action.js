@@ -49,7 +49,7 @@ export function fetchDonasi(token) {
     };
 };
 
-export function fetchDonasi2(token) {
+export function fetchDonasi2(token, id) {
     return (dispatch) => {
         axios(URL, {
             method: 'POST',
@@ -62,8 +62,8 @@ export function fetchDonasi2(token) {
                         keyword: "false"
                     },
                     {
-                        field: "donasi_type",
-                        keyword: "One Time"
+                        field: "id",
+                        keyword: id
                     }
                 ],
                 order: "created_at",
