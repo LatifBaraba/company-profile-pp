@@ -14,6 +14,7 @@ import menuReducer from '../redux/menu/reducer'
 import kontakReducer from '../redux/kontak/reducer'
 import hubungiReducer from '../redux/hubungi/reducer'
 import teamReducer from '../redux/team/reducer'
+import kategoriReducer from '../redux/kategori/reducer'
 
 const reducers = combineReducers({
     tokenReducer,
@@ -30,7 +31,8 @@ const reducers = combineReducers({
     menuReducer,
     kontakReducer,
     hubungiReducer,
-    teamReducer
+    teamReducer,
+    kategoriReducer
 })
 
 export default reducers

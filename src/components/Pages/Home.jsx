@@ -40,6 +40,7 @@ import { fetchMenu } from '../../redux/menu/action';
 import { fetchHubungi } from '../../redux/hubungi/action';
 import { fetchKontak } from '../../redux/kontak/action';
 import { fetchTeam } from '../../redux/team/action';
+import { fetchKategori } from '../../redux/kategori/action';
 import { useDispatch, useSelector } from 'react-redux';
  
 const HomeTwo = () => {
@@ -62,7 +63,7 @@ const HomeTwo = () => {
         dispatch(fetchKontak(token))
         dispatch(fetchHubungi(token))
         dispatch(fetchTeam(token))
-
+        dispatch(fetchKategori(token))
     }, [token]);
 
     const donasiData = useSelector((state) => state.donasiReducer.donasi)
@@ -80,7 +81,16 @@ const HomeTwo = () => {
     const kontakData = useSelector((state) => state.kontakReducer.kontak)
     const hubungiData = useSelector((state) => state.hubungiReducer.hubungi)
     const teamData = useSelector((state) => state.teamReducer.team)
-
+    const kategoriData = useSelector((state) => state.kategoriReducer.team)
+    
+    const katData = () => {
+        if (kategoriData != null) {
+            kategoriData.forEach(kat => {
+                dispatch(fetchDonasi2(token, kat.id))
+            });
+        }
+    }
+    
     return (
         <React.Fragment>
             {/* Main Banner */}
