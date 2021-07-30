@@ -45,13 +45,16 @@ const Program = (props) => {
                         <OwlCarousel className="blog-slider owl-carousel owl-theme" {...options}>
                             {programData.map((data, idx) => (
                                <div className="col-lg-12 col-md-12" key={idx} id={data.id}>
-                                    <div className="single-blog-item" style={{backgroundImage: `url(${data.thumbnail_image_url})`}}>
-                                        <span>{data.title}</span>
-                                        {/* <h4><Link to="#">The best gear for starting Link small business</Link></h4> */}
-                                        <h4>{data.sub_title}</h4>
-                                        <p>{data.description}</p>
-                                        
+                                    <div className="single-blog-item" style={{backgroundImage: `url(${data.thumbnail_image_url})`}}>                        
                                         <Link to="#" title="Read More" className="link-btn"><i className="fa fa-arrow-right"></i></Link>
+                                    </div>
+                                    <div>
+                                        <strong>{data.title}</strong>
+                                        {/* <h4><Link to="#">The best gear for starting Link small business</Link></h4> */}
+                                        <h4 style={{ marginBottom: '5px' }}>{data.sub_title}</h4>
+                                        <p style={{ lineHeight: '1.5', display: '-webkit-box', WebkitLineClamp: '3', WebkitBoxOrient: 'vertical', overflow: 'hidden', }}>{data.description}</p>
+                                        <Link to="#" title="Read More" className="link-btn"><a><p>read more <i className="fa fa-arrow-right"></i></p></a></Link>
+
                                     </div>
                                 </div>
                             ))}
