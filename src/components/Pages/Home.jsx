@@ -81,15 +81,6 @@ const HomeTwo = () => {
     const kontakData = useSelector((state) => state.kontakReducer.kontak)
     const hubungiData = useSelector((state) => state.hubungiReducer.hubungi)
     const teamData = useSelector((state) => state.teamReducer.team)
-    const kategoriData = useSelector((state) => state.kategoriReducer.team)
-    
-    const katData = () => {
-        if (kategoriData != null) {
-            kategoriData.forEach(kat => {
-                dispatch(fetchDonasi2(token, kat.id))
-            });
-        }
-    }
     
     return (
         <React.Fragment>

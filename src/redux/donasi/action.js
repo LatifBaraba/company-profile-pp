@@ -8,6 +8,7 @@ import { GET_DONASI,
 import axios from 'axios';
 
 const URL = `${process.env.REACT_APP_BASE_URL}/program-donasi/list`;
+const URL2 = `${process.env.REACT_APP_BASE_URL}/program-donasi-rutin/list`;
 
 export function fetchDonasi(token) {
     return (dispatch) => {
@@ -49,9 +50,9 @@ export function fetchDonasi(token) {
     };
 };
 
-export function fetchDonasi2(token, id) {
+export function fetchDonasi2(token) {
     return (dispatch) => {
-        axios(URL, {
+        axios(URL2, {
             method: 'POST',
             data: {
                 limit: "3",
@@ -62,8 +63,8 @@ export function fetchDonasi2(token, id) {
                         keyword: "false"
                     },
                     {
-                        field: "id",
-                        keyword: id
+                        field: "is_show",
+                        keyword: "true"
                     }
                 ],
                 order: "created_at",
