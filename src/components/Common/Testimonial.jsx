@@ -37,11 +37,11 @@ const Testimonial = (props) => {
                     loop margin={10} nav
                 > */}
 
-                <CarouselCard responsive={responsive}>
+                <CarouselCard responsive={responsive} >
                     {/* <div className="row"> */}
                         {testimoniData.map((data, idx) => (
-                            <div className="">
-                                <div className="single-feedback">
+                            <div className="mr-4" >
+                                <div className="single-feedback" style={{ height: '320px' }}>
                                     <div className="client-info">
                                         <div className="client-pic" key={idx}>
                                             {/* <img src={clientImgOne} alt="client-avatar" /> */}

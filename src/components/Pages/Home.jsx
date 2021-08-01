@@ -115,13 +115,13 @@ const HomeTwo = () => {
             {/* Why We Are Different */}
             {/* <WhyWeDifferent /> */}
             {/* News Area */}
-            <News data={beritaData} />
             {/* Work Area */}
             <Testimonial data={testimoniData} />
             {/* Blog Area */}
             {/* <Blog /> */}
             <Partner data={partnerData} />
             <Work data={albumData} />
+            <News data={beritaData} />
             {/* Price Area */}
             {/* <Price /> */}
             {/* FAQ Area */}
