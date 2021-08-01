@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import MainBanner from '../PageBanners/MainBanner';
 import Welcome from '../Common/Welcome';
 import About from '../Common/About';
@@ -42,7 +42,7 @@ import { fetchKontak } from '../../redux/kontak/action';
 import { fetchTeam } from '../../redux/team/action';
 import { fetchKategori } from '../../redux/kategori/action';
 import { useDispatch, useSelector } from 'react-redux';
- 
+
 const HomeTwo = () => {
     const token = localStorage.getItem("token")
     const dispatch = useDispatch()
@@ -81,17 +81,18 @@ const HomeTwo = () => {
     const kontakData = useSelector((state) => state.kontakReducer.kontak)
     const hubungiData = useSelector((state) => state.hubungiReducer.hubungi)
     const teamData = useSelector((state) => state.teamReducer.team)
-    
+
+  
     return (
         <React.Fragment>
             {/* Main Banner */}
-            <MainBanner data={bannerData}/>
+            <MainBanner data={bannerData} />
             {/* Welcome Area */}
             <Welcome data={donasiData} />
             {/* Donasi Area */}
             <Donasi data={donasi2Data} />
             {/* About Area */}
-            <About data={tentangData}/>
+            <About data={tentangData} />
             {/* About Area */}
             <Program data={programData}/>
             {/* Strategy Area */}
@@ -103,9 +104,10 @@ const HomeTwo = () => {
             {/* Skill Area */}
             {/* <Skill /> */}
             {/* Fact Area */}
-            <Funfact data={achievementData}/>
+            <Beneficaries data={beneficariesData} />
+            <Funfact data={achievementData} />
             {/* Team Area */}
-            <Team data={teamData}/>
+            <Team data={teamData} />
             {/* How We Work */}
             {/* <HowWeWork /> */}
             {/* Services Area */}
@@ -113,29 +115,28 @@ const HomeTwo = () => {
             {/* Why We Are Different */}
             {/* <WhyWeDifferent /> */}
             {/* News Area */}
-            <News data={beritaData}/>
             {/* Work Area */}
-            <Work data={albumData}/>
-            <Beneficaries data={beneficariesData}/>
+            <Testimonial data={testimoniData} />
+            {/* Blog Area */}
+            {/* <Blog /> */}
+            <Partner data={partnerData} />
+            <Work data={albumData} />
+            <News data={beritaData} />
             {/* Price Area */}
             {/* <Price /> */}
             {/* FAQ Area */}
             {/* <Faq /> */}
             {/* Testimonials Area */}
-            <Testimonial data={testimoniData}/>
-            {/* Blog Area */}
-            {/* <Blog /> */}
             {/* Partner Area */}
-            <Partner data={partnerData}/>
             {/* Subscribe Area */}
             {/* <Subscribe /> */}
             {/* Contact Area */}
-            <Contact menu={menuData} kontak={kontakData} hubungi={hubungiData}/>
+            <Contact menu={menuData} kontak={kontakData} hubungi={hubungiData} />
             {/* Footer Area */}
-            <Footer/>
+            <Footer />
             <GoTop scrollStepInPx="50" delayInMs="16.66" />
         </React.Fragment>
     );
 }
- 
+
 export default HomeTwo;
