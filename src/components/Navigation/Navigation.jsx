@@ -174,11 +174,11 @@ class Navigation extends React.Component {
                     {/* <li className="nav-item">
                         <button className="btn btn-primary btn-donasi">Donasi!</button>
                     </li> */}
-                    <Link className="btn btn-primary btn-donasi" to="/donasi">Donasi
-                        {/* <a type="button" className="btn btn-primary btn-donasi" href="">Donasi</a> */}
+                    {/* <Link className="btn btn-primary btn-donasi" to="http://ayokitapeduli.com/">Donasi */}
+                        <a type="button" className="btn btn-primary btn-donasi" target="_blank" href="http://ayokitapeduli.com/">Donasi</a>
                         {/* <Link type="button" className="btn btn-primary btn-donasi" to="/link-donasi">Donasi</Link> */}
                         {/* <button className="btn btn-primary btn-donasi" style={{marginLeft:"15px"}}>Donasi!</button> */}
-                    </Link>
+                    {/* </Link> */}
                 </ul>
             );
         }
