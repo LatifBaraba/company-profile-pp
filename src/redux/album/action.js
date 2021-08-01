@@ -33,7 +33,6 @@ export function fetchAlbum(token) {
         })
         .then(res => {
             dispatch(getAlbumSuccess(res.data.data));
-            console.log(res.data.data)
         })
         .catch(err => {
             console.log(err)

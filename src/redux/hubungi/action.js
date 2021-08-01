@@ -33,7 +33,6 @@ export function fetchHubungi(token) {
         })
         .then(res => {
             dispatch(getHubungiSuccess(res.data.data));
-            console.log(res.data.data, 'testimoni')
         })
         .catch(err => {
             console.log(err)

@@ -33,7 +33,6 @@ export function fetchTentang(token) {
         })
         .then(res => {
             dispatch(getTentangSuccess(res.data.data));
-            console.log(res.data.data)
         })
         .catch(err => {
             console.log(err)

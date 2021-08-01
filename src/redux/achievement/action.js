@@ -33,7 +33,6 @@ export function fetchAchievement(token) {
         })
         .then(res => {
             dispatch(getAchievementSuccess(res.data.data));
-            console.log(res.data.data, 'achievement')
         })
         .catch(err => {
             console.log(err)

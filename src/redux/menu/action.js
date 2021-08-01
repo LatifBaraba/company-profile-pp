@@ -33,7 +33,6 @@ export function fetchMenu(token) {
         })
         .then(res => {
             dispatch(getMenuSuccess(res.data.data));
-            console.log(res.data.data, 'menu')
         })
         .catch(err => {
             console.log(err)

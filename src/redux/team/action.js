@@ -33,7 +33,6 @@ export function fetchTeam(token) {
         })
         .then(res => {
             dispatch(getTeamSuccess(res.data.data));
-            console.log(res.data.data, 'team')
         })
         .catch(err => {
             console.log(err)

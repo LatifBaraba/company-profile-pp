@@ -81,7 +81,6 @@ export function fetchDonasi2(token) {
         })
         .then(res => {
             dispatch(getDonasi2Success(res.data.data));
-            console.log(res.data.data, "Donasi Rutin")
         })
         .catch(err => {
             console.log(err)

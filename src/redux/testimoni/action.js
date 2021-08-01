@@ -33,7 +33,6 @@ export function fetchTestimoni(token) {
         })
         .then(res => {
             dispatch(getTestimoniSuccess(res.data.data));
-            console.log(res.data.data, 'testimoni')
         })
         .catch(err => {
             console.log(err)

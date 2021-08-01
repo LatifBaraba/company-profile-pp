@@ -33,7 +33,6 @@ export function fetchBeneficaries(token) {
         })
         .then(res => {
             dispatch(getBeneficariesSuccess(res.data.data));
-            console.log(res.data.data)
         })
         .catch(err => {
             console.log(err)

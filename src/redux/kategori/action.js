@@ -24,7 +24,6 @@ export function fetchKategori(token) {
         })
         .then(res => {
             dispatch(getKategoriSuccess(res.data.data));
-            console.log(res.data.data, 'kategori')
         })
         .catch(err => {
             console.log(err)

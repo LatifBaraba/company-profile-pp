@@ -33,7 +33,6 @@ export function fetchPartner(token) {
         })
         .then(res => {
             dispatch(getPartnerSuccess(res.data.data));
-            console.log(res.data.data)
         })
         .catch(err => {
             console.log(err)
