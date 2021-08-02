@@ -1,10 +1,30 @@
 import React, { useState } from 'react';
 import CountUp from 'react-countup';
 import VisibilitySensor from "react-visibility-sensor";
- 
-const Funfact = (props) => {
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
-    const [ didViewCountUp, setDidViewCountUp] = useState(false)
+
+const Funfact = (props) => {
+    const responsive = {
+        superLargeDesktop: {
+            breakpoint: { max: 4000, min: 3000 },
+            items: 5,
+        },
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 4,
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+        },
+    };
+    const [didViewCountUp, setDidViewCountUp] = useState(false)
 
     const onVisibilityChange = isVisible => {
         if (isVisible) {
@@ -17,9 +37,27 @@ const Funfact = (props) => {
     return (
         <section className="funFacts-area ptb-80">
             <div className="container">
-                <div className="row">
+                <Carousel
+                    swipeable={false}
+                    draggable={true}
+                    showDots={true}
+                    responsive={responsive}
+                    ssr={true} // means to render carousel on server-side.
+                    infinite={true}
+                    autoPlay={props.deviceType !== "mobile" ? true : false}
+                    autoPlaySpeed={3000}
+                    keyBoardControl={false}
+                    customTransition="all .2"
+                    transitionDuration={100}
+                    containerClass="carousel-container"
+                    removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
+                    deviceType={props.deviceType}
+                    dotListClass="custom-dot-list-style"
+                    itemClass="carousel-item-padding-40-px"
+                >
+                    {/* <div className="row"> */}
                     {achievementData.map((data, idx) => (
-                        <div className="col-lg-3 col-md-6">
+                        <div className="col-lg-12 col-md-12">
                             <div className="funFact">
                                 {/* <i className="fa fa-smile-o"></i> */}
                                 <h2 className="count">
@@ -45,11 +83,11 @@ const Funfact = (props) => {
                             </div>
                         </div>
                     ))}
-                    
-                </div>
+                    {/* </div> */}
+                </Carousel>
             </div>
-        </section>
+        </section >
     );
 }
- 
+
 export default Funfact;

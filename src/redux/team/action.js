@@ -11,7 +11,7 @@ export function fetchTeam(token) {
         axios(URL, {
             method: 'POST',
             data: {
-                limit: "6",
+                limit: "20",
                 offset: "0",
                 filters: [
                     {

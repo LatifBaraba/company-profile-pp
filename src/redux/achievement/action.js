@@ -11,7 +11,7 @@ export function fetchAchievement(token) {
         axios(URL, {
             method: 'POST',
             data: {
-                limit: "4",
+                limit: "20",
                 offset: "0",
                 filters: [
                     {

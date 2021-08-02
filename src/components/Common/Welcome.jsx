@@ -30,6 +30,7 @@ const options = {
 const Welcome = (props) => {
 
     const donasiData = props.data;
+
     return (
         <section id="welcome" className="welcome-area ptb-80">
             <div className="container">

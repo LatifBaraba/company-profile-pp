@@ -22,10 +22,10 @@ export function fetchDonasi(token) {
                         field: "is_deleted",
                         keyword: "false"
                     },
-                    {
-                        field: "donasi_type",
-                        keyword: "Rutin"
-                    }
+                    // {
+                    //     field: "donasi_type",
+                    //     keyword: "Rutin"
+                    // }
                 ],
                 order: "created_at",
                 sort: "ASC",
@@ -41,7 +41,6 @@ export function fetchDonasi(token) {
         })
         .then(res => {
             dispatch(getDonasiSuccess(res.data.data));
-            // console.log(res.data.data, "Donasi Rutin")
         })
         .catch(err => {
             console.log(err)

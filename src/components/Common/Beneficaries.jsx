@@ -28,7 +28,7 @@ const Beneficaries = (props) => {
         <section id="beneficaries" className="about-area ptb-80 bg-f6f6f6">
             <div className="container">
                 <div className="section-title">
-                    <h2><span>Beneficaries</span></h2>
+                    <h2><span>Pelaporan Dampak Program</span></h2>
                     {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
                 </div>
                 

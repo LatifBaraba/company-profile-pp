@@ -37,7 +37,9 @@ const Testimonial = (props) => {
                     loop margin={10} nav
                 > */}
 
-                <CarouselCard responsive={responsive} >
+                <CarouselCard responsive={responsive} 
+                    autoPlaySpeed={3000}
+                    autoPlay={true}>
                     {/* <div className="row"> */}
                         {testimoniData.map((data, idx) => (
                             <div className="mr-4" >

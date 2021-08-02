@@ -44,12 +44,15 @@ const About = (props) => {
                                         {/* <span>Business & Tech</span> */}
                                         {/* <h4><Link to="#">The best gear for starting Link small business</Link></h4> */}
                                         {/* <h4>The best gear for starting Link small business</h4> */}
-                                        <p style={{height:"400px",verticalAlign:"middle",display:"table-cell",textAlign:"justify"}}>{data.description}</p>
                                         {/* text-align:center; 
                                         vertical-align: middle;
                                         display: table-cell; */}
                                         {/* <Link to="/blog-details" title="Read More" className="link-btn"><i className="fa fa-arrow-right"></i></Link> */}
                                     </div>
+                                    <div>
+                                        <p className="text-center"style={{ verticalAlign: "middle", display: "table-cell", textAlign: "center" }}>"{data.description}"</p>
+                                    </div>
+                                    
                                 </div>
                             ))}
                         </OwlCarousel>
