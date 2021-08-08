@@ -8,6 +8,7 @@ const options = {
     nav: false,
     mouseDrag: true,
     autoplayHoverPause: true,
+    autoplayTimeout: 2000,
     responsiveClass: true,
     dots: true,
     // item: 4,

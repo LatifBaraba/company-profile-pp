@@ -1,30 +1,34 @@
 import React from 'react';
-import clientImgOne from '../../assets/images/client-avatar1.jpg';
-import clientImgTwo from '../../assets/images/client-avatar2.jpg';
-import clientImgThree from '../../assets/images/client-avatar3.jpg';
-import CarouselCard from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-const Testimonial = (props) => {
+import OwlCarousel from 'react-owl-carousel3';
 
+const Testimonial = (props) => {
+    const options = {
+        loop: false,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        nav: false,
+        mouseDrag: true,
+        autoplayHoverPause: true,
+        responsiveClass: true,
+        dots: true,
+        navText: [
+            "<i class='fa fa-angle-left'></i>",
+            "<i class='fa fa-angle-right'></i>"
+        ],
+        responsive: {
+            0: {
+                items: 1
+            },
+            786: {
+                items: 2
+            },
+            1200: {
+                items: 3
+            }
+        }
+    }
     const testimoniData = props.data;
-    const responsive = {
-        superLargeDesktop: {
-            breakpoint: { max: 4000, min: 3000 },
-            items: 5,
-        },
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 4,
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2,
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-        },
-    };
+
     return (
         <section className="testimonials-area ptb-80 bg-f6f6f6">
             <div className="container">
@@ -36,11 +40,11 @@ const Testimonial = (props) => {
                     className="owl-theme"
                     loop margin={10} nav
                 > */}
-
-                <CarouselCard responsive={responsive} 
-                    autoPlaySpeed={3000}
-                    autoPlay={true}>
-                    {/* <div className="row"> */}
+                {testimoniData.length > 0 &&
+                    <OwlCarousel
+                        className="team-slider owl-carousel owl-theme"
+                        {...options}
+                    >
                         {testimoniData.map((data, idx) => (
                             <div className="mr-4" >
                                 <div className="single-feedback" style={{ height: '320px' }}>
@@ -62,10 +66,9 @@ const Testimonial = (props) => {
                                 </div>
                             </div>
                         ))}
-                    {/* </div> */}
-                </CarouselCard>
-
-
+                        {/* </div> */}
+                    </OwlCarousel>
+                }
             </div>
         </section>
     );
