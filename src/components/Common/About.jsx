@@ -7,10 +7,12 @@ import OwlCarousel from 'react-owl-carousel3';
 const options = {
     loop: true,
     autoplay: true,
+    autoplayTimeout: 2000,
     nav: false,
     mouseDrag: true,
     autoplayHoverPause: true,
     responsiveClass: true,
+
     dots: true,
     navText: [
         "<i class='fa fa-angle-left'></i>",

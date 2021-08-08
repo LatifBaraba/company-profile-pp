@@ -45,10 +45,10 @@ const Funfact = (props) => {
                     ssr={true} // means to render carousel on server-side.
                     infinite={true}
                     autoPlay={props.deviceType !== "mobile" ? true : false}
-                    autoPlaySpeed={3000}
+                    autoPlaySpeed={5000}
                     keyBoardControl={false}
-                    customTransition="all .2"
-                    transitionDuration={100}
+                    customTransition="all .3"
+                    transitionDuration={3000}
                     containerClass="carousel-container"
                     removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
                     deviceType={props.deviceType}
