@@ -12,6 +12,7 @@ const URL2 = `${process.env.REACT_APP_BASE_URL}/program-donasi-rutin/list`;
 
 export function fetchDonasi(token) {
     return (dispatch) => {
+        console.log(token)
         axios(URL, {
             method: 'POST',
             data: {
@@ -22,10 +23,11 @@ export function fetchDonasi(token) {
                         field: "is_deleted",
                         keyword: "false"
                     },
-                    // {
-                    //     field: "donasi_type",
-                    //     keyword: "Rutin"
-                    // }
+                    {
+                        field: "is_show",
+                        keyword: "true"
+                    }
+
                 ],
                 order: "created_at",
                 sort: "ASC",
@@ -41,6 +43,7 @@ export function fetchDonasi(token) {
         })
         .then(res => {
             dispatch(getDonasiSuccess(res.data.data));
+            console.log(res.data.data)
         })
         .catch(err => {
             console.log(err)
