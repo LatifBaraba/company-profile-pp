@@ -38,7 +38,7 @@ const About = (props) => {
                 </div>
                 
                 <div className="row">
-                    {tentangData.length > 0 &&
+                    {tentangData && tentangData.length > 0 &&
                         <OwlCarousel className="blog-slider owl-carousel owl-theme" {...options}>
                             {tentangData.map((data, idx) => (
                                 <div className="col-lg-12 col-md-12" key={idx} id={data.id}>

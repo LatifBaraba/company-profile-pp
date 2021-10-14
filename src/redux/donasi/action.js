@@ -42,6 +42,9 @@ export function fetchDonasi(token) {
             }
         })
         .then(res => {
+            console.log(res.data.data, 'donation action')
+            // console.log(res.data, 'donation action1')
+
             dispatch(getDonasiSuccess(res.data.data));
             console.log(res.data.data)
         })
@@ -82,6 +85,7 @@ export function fetchDonasi2(token) {
             }
         })
         .then(res => {
+            console.log(res.data.data, 'donasi2')
             dispatch(getDonasi2Success(res.data.data));
         })
         .catch(err => {

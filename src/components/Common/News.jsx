@@ -38,7 +38,9 @@ const News = (props) => {
                 <div className="section-title">
                     {/* <h4>We are creative</h4> */}
                     <h2>Berita <span>#PemudaPeduli</span></h2>
-                    <button className="btn btn-primary">Lihat lainnya</button>
+                    <Link to="/news">
+                        <button className="btn btn-primary">Lihat lainnya</button>
+                    </Link>
                     {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
                 </div>
 

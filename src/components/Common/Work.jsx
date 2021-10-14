@@ -46,6 +46,9 @@ const Work = (props) => {
             <div className="container">
                 <div className="section-title">
                     <h2><span>Album</span></h2>
+                    <Link to="/albums">
+                    <button className="btn btn-primary">Lihat lainnya</button>
+                    </Link>
                     {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
                 </div>
             </div>

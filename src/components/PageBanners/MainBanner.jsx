@@ -53,7 +53,7 @@ const MainBanner = (props) => {
     
     return (
         <>
-        {bannerData.length > 0 &&
+        {bannerData && bannerData.length > 0 &&
             <OwlCarousel 
                     id="home"
                     className="home-slides owl-theme"

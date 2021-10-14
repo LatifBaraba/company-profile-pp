@@ -1,5 +1,6 @@
 import React from 'react';
 import OwlCarousel from 'react-owl-carousel3';
+import { Link } from 'react-router-dom';
 
 const options = {
     loop: false,
@@ -37,6 +38,9 @@ const Team = (props) => {
                 <div className="section-title">
                     {/* <h4>Pemuda Peduli</h4> */}
                     <h2>Team <span>kami</span></h2>
+                    <Link to="/team-kami">
+                        <button className="btn btn-primary">Lihat lainnya</button>
+                    </Link>
                     {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
                 </div>
                 

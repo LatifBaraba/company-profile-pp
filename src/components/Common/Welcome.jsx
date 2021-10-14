@@ -45,16 +45,20 @@ const Welcome = (props) => {
                 <div className="section-title">
                     {/* <h4>We are creative</h4> */}
                     <h2>Program Donasi <span>#CeritaDariJalanan</span></h2>
-                    <button className="btn btn-primary">Lihat lainnya</button>
+                    {/* <Link to="/main-donasi"> */}
+                    <a href="http://ayokitapeduli.com/list-donasi" target="_blank">
+                        <button className="btn btn-primary">Lihat lainnya</button>
+                    </a>
+                    {/* </Link> */}
                     {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
                 </div>
 
                 <div className="row">
-                    {donasiData.length > 0 &&
+                    {donasiData && donasiData.length > 0 &&
                         <OwlCarousel className="blog-slider owl-carousel owl-theme" {...options}>
-                            {donasiData.map((data, idx) => {
+                            {donasiData && donasiData.map((data, idx) => {
                                 const progres = ((data.target - data.donation_collect) * 100) / data.target
-                                const bar = ((100/100) - (progres/100)) * 100
+                                const bar = ((100 / 100) - (progres / 100)) * 100
                                 return (
                                     data.is_show === true ? (
                                         <div className="col-md-12" key={idx}>

@@ -34,7 +34,7 @@ const Beneficaries = (props) => {
                 </div>
                 
                 <div className="row">
-                    {beneficariesData.length > 0 &&
+                    {beneficariesData && beneficariesData.length > 0 &&
                         <OwlCarousel className="blog-slider owl-carousel owl-theme" {...options}>
                             {beneficariesData.map((data, idx) => (
                                 <div className="col-lg-12 col-md-12" key={idx} id={data.id}>
