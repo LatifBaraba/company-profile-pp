@@ -36,7 +36,9 @@ const Program = (props) => {
                 <div className="section-title">
                     {/* <h4>We are creative</h4> */}
                     <h2>Program <span>Kami</span></h2>
+                    <Link to="/program">
                     <button className="btn btn-primary">Lihat lainnya</button>
+                    </Link>
                     {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
                 </div>
                 

@@ -8,8 +8,16 @@ import Home from './components/Pages/Home';
 // import Blog from './components/Pages/Blog';
 // import BlogDetails from './components/Pages/BlogDetails';
 import LinkDonasi from './components/Pages/LinkDonasi';
+import ProgramList from './components/Pages/ProgramList'
+import ProgramDetail from './components/Pages/ProgramDetail'
+import IncidentalProgram from './components/Pages/IncidentalProgram'
+import MainDonation from './components/Pages/MainDonation'
+
 import { useDispatch } from 'react-redux'
 import { fetchToken } from './redux/token/action'
+import NewsPage from './components/Pages/NewsPage';
+import Album from './components/Pages/AlbumPage';
+import StrukturTeam from './components/Pages/TeamKami';
 const App = () => {
 
     const dispatch = useDispatch()
@@ -49,6 +57,15 @@ const App = () => {
                 {/* <Route path="/blog" exact component={Blog} />
                 <Route path="/blog-details" exact component={BlogDetails} /> */}
                 <Route path="/donasi" exact component={LinkDonasi}/>
+                {/* <Route path="/main-donasi" exact component={MainDonation} /> */}
+                <Route path="/program" exact component={ProgramList} />
+                <Route path="/program-detail" exact component={ProgramDetail} />
+                <Route path="/incidental-program" exact component={IncidentalProgram} />
+                <Route path="/news" exact component={NewsPage} />
+                <Route path="/albums" exact component={Album} />
+                <Route path="/team-kami" exact component={StrukturTeam} />
+
+
             {/* </Switch> */}
         </Router>
         </>

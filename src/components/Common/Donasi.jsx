@@ -36,7 +36,11 @@ const Donasi = (props) => {
                 <div className="section-title">
                     {/* <h4>We are creative</h4> */}
                     <h2>Program Donasi <span>#TiapHariBerbagi</span></h2>
-                    <button className="btn btn-primary">Lihat lainnya</button>
+                    {/* <Link to="/main-donasi"> */}
+                    <a href="http://ayokitapeduli.com/list-donasi-dua" target="_blank">
+                        <button className="btn btn-primary">Lihat lainnya</button>
+                    </a>
+                    {/* </Link> */}
                     {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
                 </div>
 
@@ -46,8 +50,9 @@ const Donasi = (props) => {
                             {donasiDuaData.map((data, idx) => (
                                 data.is_show === true ? (
                                     <div className="col-lg-12 col-md-12" key={idx} id={data.id}>
-                                        <div className="single-blog-item" style={{ backgroundImage: `url(${data.thumbnail_image_url})` }}>
-                                        </div>
+                                        {/* <div className="single-blog-item" > */}
+                                        <img src={data.thumbnail_image_url} />
+                                        {/* </div> */}
                                         <div>
                                             <span>{data.title}</span>
                                             <h4>{data.sub_title}</h4>
