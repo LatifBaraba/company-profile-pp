@@ -7,6 +7,7 @@ import { fetchKontak } from '../../redux/kontak/action'
 import { fetchMenu } from '../../redux/menu/action'
 import Contact from '../Common/Contact'
 import OwlCarousel from 'react-owl-carousel3';
+import { Link } from 'react-router-dom'
 
 const options = {
     loop: false,
@@ -61,7 +62,7 @@ const NewsPage = () => {
     const kontakData = useSelector((state) => state.kontakReducer.kontak)
     const hubungiData = useSelector((state) => state.hubungiReducer.hubungi)
 
-    console.log(beritaHeadlineData, 'headline')
+   
     const ListTag = tagList.map((item, idx) => {
         return (
             <li className={`list-group-item + ${item.Tag === tagField[0] ? "active" : ""} `} key={idx} onClick={() =>
@@ -106,9 +107,23 @@ const NewsPage = () => {
                     </div>
                 </div>
                 <div class="col-sm-8  grid-margin">
-                    <h2 class="mb-2 font-weight-600">
-                        {news.sub_title}
-                    </h2>
+                    <Link to={{
+                        pathname: `/news/news-detail`,
+                        state: {
+                            id: news.id,
+                            sub_title: news.sub_title,
+                            image: news.thumbnail_image_url,
+                            description: news.description,
+                            created_at: news.created_at,
+                            menu: menuData,
+                            kontak: kontakData,
+                            hubungi: hubungiData
+                        }
+                    }}>
+                        <h2 class="mb-2 font-weight-600">
+                            {news.sub_title}
+                        </h2>
+                    </Link> 
                     <div class="fs-13 mb-2">
                         {news.created_at.slice(0, 10)}
                     </div>
@@ -119,7 +134,7 @@ const NewsPage = () => {
             </div>
         )
     })
-    console.log(newArr, 'new')
+
     return (
         <>
             <div className="container-xl" style={{ marginTop: '100px' }}>
@@ -133,7 +148,6 @@ const NewsPage = () => {
                                     {...options}
                                 >
                                     {beritaHeadlineData.map((item, idx) => {
-                                        console.log(item, 'item')
                                         return (
                                             <div className="position-relative">
                                                 <img src={item.thumbnail_image_url} alt="banner" className="img-fluid" style={{ height: '400px', width: '400vh' }} />

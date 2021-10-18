@@ -28,9 +28,8 @@ const ProgramList = (props) => {
     const menuData = useSelector((state) => state.menuReducer.menu)
     const kontakData = useSelector((state) => state.kontakReducer.kontak)
     const hubungiData = useSelector((state) => state.hubungiReducer.hubungi)
-    console.log(programData, 'program')
+
     const ListProgram = programData.map((item, idx) => {
-        console.log(item, 'ini item')
         return (
             <div class="postcard dark yellow mb-5" style={{ display: 'flex' }} key={idx}>
                 <div className="mr-3">
@@ -76,7 +75,6 @@ const ProgramList = (props) => {
         )
     })
     const ListProgramIncd = programIncidental.map((item, idx) => {
-        console.log(item, 'ini item')
         return (
             <div class="postcard dark yellow mb-5" style={{ display: 'flex' }} key={idx}>
                 <div className="mr-3">

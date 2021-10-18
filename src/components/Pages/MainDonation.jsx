@@ -44,7 +44,7 @@ const MainDonation = (props) => {
     const menuData = useSelector((state) => state.menuReducer.menu)
     const kontakData = useSelector((state) => state.kontakReducer.kontak)
     const hubungiData = useSelector((state) => state.hubungiReducer.hubungi)
-console.log(donasi2Data)
+
    const ListRutin = donasi2Data.map((item, idx) => {
        if ((idx % 2) === 1) {
            return (

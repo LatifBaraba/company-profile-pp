@@ -18,6 +18,7 @@ import { fetchToken } from './redux/token/action'
 import NewsPage from './components/Pages/NewsPage';
 import Album from './components/Pages/AlbumPage';
 import StrukturTeam from './components/Pages/TeamKami';
+import NewsDetail from './components/Pages/NewsDetail';
 const App = () => {
 
     const dispatch = useDispatch()
@@ -62,6 +63,7 @@ const App = () => {
                 <Route path="/program-detail" exact component={ProgramDetail} />
                 <Route path="/incidental-program" exact component={IncidentalProgram} />
                 <Route path="/news" exact component={NewsPage} />
+                <Route path="/news/news-detail" exact component={NewsDetail} />
                 <Route path="/albums" exact component={Album} />
                 <Route path="/team-kami" exact component={StrukturTeam} />
 

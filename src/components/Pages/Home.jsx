@@ -82,7 +82,6 @@ const HomeTwo = () => {
     const hubungiData = useSelector((state) => state.hubungiReducer.hubungi)
     const teamData = useSelector((state) => state.teamReducer.team)
 
-    console.log(beritaData, 'data comp')
     return (
         <React.Fragment>
             {/* Main Banner */}

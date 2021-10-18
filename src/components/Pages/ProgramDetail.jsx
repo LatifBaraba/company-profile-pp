@@ -147,7 +147,6 @@ const ProgramDetail = (props) => {
                         {item.beneficaries &&
                             <OwlCarousel className="blog-slider owl-carousel owl-theme" {...options}>
                                 {item.beneficaries.map((data, idx) => {
-                                    console.log(data, 'ini data')
                                     return (
                                         <div className="" key={idx} id={data.id}>
                                             <div className="single-blog-item" style={{ backgroundImage: `url(${data})`, width: "100%", height: "300px" }}>

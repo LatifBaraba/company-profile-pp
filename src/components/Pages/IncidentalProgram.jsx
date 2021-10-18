@@ -58,7 +58,7 @@ const IncidentalProgram = (props) => {
             setDidViewCountUp(true);
         }
     };
-    console.log(beneficariesData, 'data')
+ 
     const options = {
         loop: false,
         autoplay: true,
