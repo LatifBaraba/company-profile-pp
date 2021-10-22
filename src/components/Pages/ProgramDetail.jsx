@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAlbum } from '../../redux/album/action'
-import { fetchBanner } from '../../redux/banner/action'
+import { fetchBanner } from '../../redux/program/action'
 import Work from '../Common/Work'
 import OwlCarousel from 'react-owl-carousel3';
 import { fetchAchievement } from '../../redux/achievement/action'
@@ -19,21 +19,19 @@ import Contact from '../Common/Contact'
 
 const ProgramDetail = (props) => {
     const item = props.location.state
-  
     const token = localStorage.getItem("token")
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(fetchBanner(token))
         dispatch(fetchAlbum(token))
-        dispatch(fetchAchievement(token))
         dispatch(fetchBerita(token))
         dispatch(fetchMenu(token))
         dispatch(fetchKontak(token))
         dispatch(fetchHubungi(token))
-    }, [token, item])
+        dispatch(fetchBanner(token, item.tag))
+    }, [token, item.tag])
 
     const albumData = useSelector((state) => state.albumReducer.album)
-    const achievementData = useSelector((state) => state.achievementReducer.achievement)
+    const bannerData = useSelector((state) => state.programReducer.banner)
     const beritaData = useSelector((state) => state.beritaReducer.berita)
     const menuData = useSelector((state) => state.menuReducer.menu)
     const kontakData = useSelector((state) => state.kontakReducer.kontak)
@@ -94,30 +92,34 @@ const ProgramDetail = (props) => {
         <>
             <div className="container-xl">
                 <div className="pl-0 pr-0">
-                    <div id="carouselExampleIndicators" class="carousel slide mb-5" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <div id="carouselExampleIndicators" className="carousel slide mb-5" data-ride="carousel">
+                        <ol className="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                         </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="https://primefoundation.id/scheme/uploads/2020/03/corona-WEB-BANNER.jpg" alt="First slide" />
-                            </div>
-                            <div class="carousel-item">
+                        <div className="carousel-inner">
+                            {bannerData.map((item, idx) => {
+                                return(
+                                    <div className="carousel-item active" key={idx}>
+                                        <img className="d-block w-100" src={item.thumbnail_image_url} alt="First slide" />
+                                    </div>
+                                )
+                            })}
+                            {/* <div class="carousel-item">
                                 <img class="d-block w-100" src="https://tiento.co.id/wp-content/uploads/2020/04/Web-Banner-Hasil-Donasi-web-1400x467.jpg.webp" alt="Second slide" />
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="..." alt="Third slide" />
-                            </div>
+                            </div> */}
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
+                        <a class="carousel-control-prev" href="" role="button" data-slide="prev">
+                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span className="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
+                        <a class="carousel-control-next" href="" role="button" data-slide="next">
+                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span className="sr-only">Next</span>
                         </a>
                     </div>
                 </div>
@@ -179,7 +181,7 @@ const ProgramDetail = (props) => {
                         itemClass="carousel-item-padding-40-px"
                     >
                         {/* <div className="row"> */}
-                        {achievementData.map((data, idx) => (
+                        {item.achievements.map((data, idx) => (
                             <div className="col-lg-12 col-md-12">
                                 <div className="funFact">
                                     {/* <i className="fa fa-smile-o"></i> */}
@@ -195,14 +197,14 @@ const ProgramDetail = (props) => {
                                                 start={0}
                                                 end={
                                                     didViewCountUp
-                                                        ? data.achievement_total
+                                                        ? data.value
                                                         : 0
                                                 }
                                                 duration={6}
                                             />
                                         </VisibilitySensor>
                                     </h2>
-                                    <p>{data.achievement_name}</p>
+                                    <p>{data.label}</p>
                                 </div>
                             </div>
                         ))}

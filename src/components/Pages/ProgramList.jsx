@@ -42,7 +42,9 @@ const ProgramList = (props) => {
                                 image: item.thumbnail_image_url,
                                 description: item.description,
                                 created_at: item.created_at,
-                                beneficaries: item.beneficaries_image_url
+                                beneficaries: item.beneficaries_image_url,
+                                tag: item.tag,
+                                achievements: item.achievements
                             }
                         }}>
                             <img class="postcard__img" src={item.thumbnail_image_url} alt="Image Title" style={{ maxWidth: '300px' }} />
@@ -58,8 +60,9 @@ const ProgramList = (props) => {
                             image: item.thumbnail_image_url,
                             description: item.description,
                             created_at: item.created_at,
-                            beneficaries: item.beneficaries_image_url
-
+                            beneficaries: item.beneficaries_image_url,
+                            tag: item.tag,
+                            achievements: item.achievements
                         }
                     }}>
                         <h1 class="postcard__title yellow"><a href="#">{item.sub_title}</a></h1>
