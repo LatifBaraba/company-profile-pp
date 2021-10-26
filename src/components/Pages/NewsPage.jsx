@@ -8,6 +8,7 @@ import { fetchMenu } from '../../redux/menu/action'
 import Contact from '../Common/Contact'
 import OwlCarousel from 'react-owl-carousel3';
 import { Link } from 'react-router-dom'
+import Footer from '../Common/Footer'
 
 const options = {
     loop: false,
@@ -223,6 +224,7 @@ const NewsPage = () => {
                 </div>
             </div>
             <Contact menu={menuData} kontak={kontakData} hubungi={hubungiData} />
+            <Footer/>
         </>
     )
 }

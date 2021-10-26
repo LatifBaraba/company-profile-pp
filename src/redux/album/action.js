@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const URL = `${process.env.REACT_APP_BASE_URL}/album/list`;
 
-export function fetchAlbum(token) {
+export function fetchAlbum(token, tag) {
     return (dispatch) => {
         axios(URL, {
             method: 'POST',
@@ -17,6 +17,10 @@ export function fetchAlbum(token) {
                     {
                         field: "is_deleted",
                         keyword: "false"
+                    },
+                    {
+                        field: "tag",
+                        keyword: tag
                     }
                 ],
                 order: "created_at",
