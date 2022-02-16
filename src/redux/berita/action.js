@@ -21,12 +21,12 @@ export function fetchBerita(token) {
         axios(URL, {
             method: 'POST',
             data: {
-                limit: "100",
-                offset: "0",
+                limit: "3",
+                offset: "1",
                 filters: [
                     {
-                        field: "is_deleted",
-                        keyword: "false",
+                        field: "is_headline",
+                        keyword: "true",
                     }
                 ],
                 order: "created_at",
