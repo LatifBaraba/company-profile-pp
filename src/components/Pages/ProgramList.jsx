@@ -161,28 +161,8 @@ const ProgramList = (props) => {
                     <h1 class="postcard__title yellow mb-2" ><a href="#" style={{ color: '#0F72BE', fontWeight: '600' }}>Program Incidental</a></h1>
                 </div>
                 {ListProgramIncd}
-                {/* <div class="postcard dark yellow mb-5" style={{ display: 'flex' }}>
-                    <div className="mr-3">
-                        <a class="postcard__img_link" href="#">
-                            <Link to="/incidental-program">
-                                <img class="postcard__img" src="https://picsum.photos/501/501" alt="Image Title" style={{ maxWidth: '300px' }} />
-                            </Link>
-                        </a>
-                    </div>
-                    <div class="postcard__text">
-                        <Link to="/incidental-program">
-                            <h1 class="postcard__title yellow"><a href="#">Bencana Sosial</a></h1>
-                        </Link>
-                        <div class="postcard__subtitle small mb-2">
-                            <time datetime="2020-05-25 12:00:00">
-                                <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-					            </time>
-                        </div>
-                        <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
-                    </div>
-                </div> */}
-                <Contact menu={menuData} kontak={kontakData} hubungi={hubungiData} />
             </div>
+            <Contact menu={menuData} kontak={kontakData} hubungi={hubungiData} />
             <Footer />
         </>
     )

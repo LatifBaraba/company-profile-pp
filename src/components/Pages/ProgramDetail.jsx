@@ -22,7 +22,7 @@ const ProgramDetail = (props) => {
     const token = localStorage.getItem("token")
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(fetchAlbum(token))
+        dispatch(fetchAlbum(token, item.tag))
         dispatch(fetchBerita(token))
         dispatch(fetchMenu(token))
         dispatch(fetchKontak(token))
@@ -37,6 +37,7 @@ const ProgramDetail = (props) => {
     const kontakData = useSelector((state) => state.kontakReducer.kontak)
     const hubungiData = useSelector((state) => state.hubungiReducer.hubungi)
  
+    console.log(albumData, 'album')
     const [didViewCountUp, setDidViewCountUp] = useState(false)
 
     const onVisibilityChange = isVisible => {
@@ -44,7 +45,46 @@ const ProgramDetail = (props) => {
             setDidViewCountUp(true);
         }
     };
-   
+    const optionsBanner = {
+        items: 1,
+        loop: false,
+        autoplay: true,
+        nav: true,
+        responsiveClass: true,
+        dots: false,
+        autoplayHoverPause: true,
+        mouseDrag: true,
+        navText: [
+            "<i class='fa fa-angle-left'></i>",
+            "<i class='fa fa-angle-right'></i>"
+        ]
+    }
+
+    const buttonLeft = (title_button_left, deeplink_left, isVisible) => {
+        if (title_button_left != null) {
+            return (
+                // <AnchorLink href={`${deeplink_left ? deeplink_left : "#"} `} className={`btn btn-primary ${isVisible ? "animated fadeInDown slow opacityOne" : ""} `}>
+                //     {title_button_left}
+                // </AnchorLink>
+                <a href={`${deeplink_left ? deeplink_left : "#"} `} className={`btn btn-primary m-2 ${isVisible ? "animated fadeInDown slow opacityOne" : ""} `} target="_blank" rel="noopener noreferrer">
+                    {title_button_left}
+                </a>
+            )
+        }
+    }
+
+    const buttonRight = (title_button_right, deeplink_right, isVisible) => {
+        if (title_button_right != null) {
+            return (
+                // <AnchorLink href={`${deeplink_right ? deeplink_right : "#"} `} className={`btn btn-primary view-work ${isVisible ? "animated fadeInDown slow opacityOne" : ""}`}>
+                //    {title_button_right}
+                // </AnchorLink>
+                <a href={`${deeplink_right ? deeplink_right : "#"} `} className={`btn btn-primary m-2 ${isVisible ? "animated fadeInDown slow opacityOne" : ""} `} target="_blank" rel="noopener noreferrer">
+                    {title_button_right}
+                </a>
+            )
+        }
+    }
     const options = {
         loop: false,
         autoplay: true,
@@ -90,9 +130,54 @@ const ProgramDetail = (props) => {
     };
     return (
         <>
-            <div className="container-xl">
+            {bannerData && bannerData.length > 0 &&
+                <OwlCarousel
+                    id="home"
+                    className="home-slides owl-theme"
+                    {...optionsBanner}
+                >
+                    {bannerData.map((data, idx) => (
+                        <div className={`main-banner`} key={idx} style={{ backgroundImage: `url(${data.thumbnail_image_url})` }}>
+                            <div className="d-table">
+                                <div className="d-table-cell">
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col-lg-12 col-md-12">
+                                                <VisibilitySensor delayedCall>
+                                                    {({ isVisible }) => (
+                                                        <div className="main-banner-text">
+                                                            <h4 className={isVisible ? "animated fadeInDown slow opacityOne" : ''}>
+                                                                {data.title}
+                                                            </h4>
+                                                            <h1 className={isVisible ? "animated fadeInDown slow opacityOne" : ''} dangerouslySetInnerHTML={{ __html: data.sub_title }} />
+
+                                                            <p className={isVisible ? "animated fadeInDown slow opacityOne" : ''}>
+                                                                {data.description}
+                                                            </p>
+                                                            {buttonLeft(data.title_button_left, data.deeplink_left, isVisible)}
+                                                            {buttonRight(data.title_button_right, data.deeplink_right, isVisible)}
+                                                            {/* <AnchorLink href="#about" className={`btn btn-primary ${isVisible ? "animated fadeInDown slow opacityOne" : ""} `}>
+                                                        Get Started
+                                                    </AnchorLink> */}
+                                                            {/* <AnchorLink href="#work" className={`btn btn-primary view-work ${isVisible ? "animated fadeInDown slow opacityOne" : ""}`}>
+                                                        View Work
+                                                    </AnchorLink> */}
+                                                        </div>
+                                                    )}
+                                                </VisibilitySensor>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </OwlCarousel>
+            }
+            <div className="container-xl" style={{ marginTop: '100px' }}>
                 <div className="pl-0 pr-0">
-                    <div id="carouselExampleIndicators" className="carousel slide mb-5" data-ride="carousel">
+                   
+                    {/* <div id="carouselExampleIndicators" className="carousel slide mb-5" data-ride="carousel">
                         <ol className="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -106,22 +191,16 @@ const ProgramDetail = (props) => {
                                     </div>
                                 )
                             })}
-                            {/* <div class="carousel-item">
-                                <img class="d-block w-100" src="https://tiento.co.id/wp-content/uploads/2020/04/Web-Banner-Hasil-Donasi-web-1400x467.jpg.webp" alt="Second slide" />
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="..." alt="Third slide" />
-                            </div> */}
                         </div>
-                        <a class="carousel-control-prev" href="" role="button" data-slide="prev">
+                        <a class="carousel-control-prev" role="button" data-slide="prev">
                             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span className="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="" role="button" data-slide="next">
+                        <a class="carousel-control-next" role="button" data-slide="next">
                             <span className="carousel-control-next-icon" aria-hidden="true"></span>
                             <span className="sr-only">Next</span>
                         </a>
-                    </div>
+                    </div> */}
                 </div>
                 <div class="postcard dark yellow mb-5" style={{ display: 'flex' }}>
                     <div className="mr-3">
@@ -211,10 +290,10 @@ const ProgramDetail = (props) => {
                         {/* </div> */}
                     </Carousel>
                 </div>
-                <Work data={albumData} />
-                <News data={beritaData} />
-                <Contact menu={menuData} kontak={kontakData} hubungi={hubungiData} />
             </div>
+            <Work data={albumData} />
+            <News data={beritaData} />
+            <Contact menu={menuData} kontak={kontakData} hubungi={hubungiData} />
             <Footer />
         </>
     )
