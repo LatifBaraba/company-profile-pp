@@ -96,6 +96,10 @@ export function fetchBeritaByTag(token, field, tag) {
                     {
                         field: field,
                         keyword: tag,
+                    },
+                    {
+                        field: "is_deleted",
+                        keyword: "false",
                     }
                 ],
                 order: "created_at",
