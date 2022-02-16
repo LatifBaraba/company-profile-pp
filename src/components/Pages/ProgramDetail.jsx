@@ -19,6 +19,8 @@ import Contact from '../Common/Contact'
 
 const ProgramDetail = (props) => {
     const item = props.location.state
+
+    console.log(item)
     const token = localStorage.getItem("token")
     const dispatch = useDispatch()
     useEffect(() => {
@@ -222,7 +224,7 @@ const ProgramDetail = (props) => {
                 <div className="section">
                     <div className="section-title">
 
-                        <h1 class="postcard__title yellow mb-2" ><a href="#" style={{ color: '#0F72BE', fontWeight: '600' }}>Beneficarries</a></h1>
+                        <h1 class="postcard__title yellow mb-2" ><a style={{ color: '#0F72BE', fontWeight: '600' }}>Beneficiaries</a></h1>
                     </div>
                     <div className="shorting">
                         {item.beneficaries &&
@@ -240,7 +242,7 @@ const ProgramDetail = (props) => {
                         }
                     </div>
                 </div>
-                <div className=" ptb-80" style={{ background: '#0F72BE' }}>
+                {/* <div className=" ptb-80" style={{ background: '#0F72BE' }}>
                     <Carousel
                         swipeable={true}
                         draggable={true}
@@ -259,11 +261,11 @@ const ProgramDetail = (props) => {
                         dotListClass="custom-dot-list-style"
                         itemClass="carousel-item-padding-40-px"
                     >
-                        {/* <div className="row"> */}
+                        
                         {item.achievements.map((data, idx) => (
                             <div className="col-lg-12 col-md-12">
                                 <div className="funFact">
-                                    {/* <i className="fa fa-smile-o"></i> */}
+                        
                                     <h2 className="count">
                                         <VisibilitySensor
                                             onChange={onVisibilityChange}
@@ -287,9 +289,9 @@ const ProgramDetail = (props) => {
                                 </div>
                             </div>
                         ))}
-                        {/* </div> */}
+                        
                     </Carousel>
-                </div>
+                </div> */}
             </div>
             <Work data={albumData} />
             <News data={beritaData} />

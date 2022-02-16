@@ -46,7 +46,7 @@ const Welcome = (props) => {
                     {/* <h4>We are creative</h4> */}
                     <h2>Program Donasi <span>#CeritaDariJalanan</span></h2>
                     {/* <Link to="/main-donasi"> */}
-                    <a href="http://ayokitapeduli.com/list-donasi" target="_blank">
+                    <a href="http://ayokitapeduli.com/list-donasi-dua" target="_blank">
                         <button className="btn btn-primary">Lihat lainnya</button>
                     </a>
                     {/* </Link> */}

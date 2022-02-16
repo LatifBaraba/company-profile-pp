@@ -11,6 +11,7 @@ import Contact from '../Common/Contact'
 import { Link } from 'react-router-dom';
 
 const ProgramList = (props) => {
+    
 
     const token = localStorage.getItem("token")
     const dispatch = useDispatch()
@@ -78,6 +79,7 @@ const ProgramList = (props) => {
         )
     })
     const ListProgramIncd = programIncidental.map((item, idx) => {
+        {console.log(item)}
         return (
             <div class="postcard dark yellow mb-5" style={{ display: 'flex' }} key={idx}>
                 <div className="mr-3">
@@ -154,11 +156,11 @@ const ProgramList = (props) => {
                     </div>
                 </div>
                 <div className="section-title">
-                    <h1 class="postcard__title yellow mb-2" ><a href="#" style={{ color: '#0F72BE', fontWeight: '600' }}>Program Utama</a></h1>
+                    <h1 class="postcard__title yellow mb-2" ><a style={{ color: '#0F72BE', fontWeight: '600' }}>Program Utama</a></h1>
                 </div>
                 {ListProgram}
                 <div className="section-title">
-                    <h1 class="postcard__title yellow mb-2" ><a href="#" style={{ color: '#0F72BE', fontWeight: '600' }}>Program Incidental</a></h1>
+                    <h1 class="postcard__title yellow mb-2" ><a style={{ color: '#0F72BE', fontWeight: '600' }}>Program Incidental</a></h1>
                 </div>
                 {ListProgramIncd}
             </div>

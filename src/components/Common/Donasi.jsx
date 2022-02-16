@@ -37,7 +37,7 @@ const Donasi = (props) => {
                     {/* <h4>We are creative</h4> */}
                     <h2>Program Donasi <span>#TiapHariBerbagi</span></h2>
                     {/* <Link to="/main-donasi"> */}
-                    <a href="http://ayokitapeduli.com/list-donasi-dua" target="_blank">
+                    <a href="http://ayokitapeduli.com/list-donasi" target="_blank">
                         <button className="btn btn-primary">Lihat lainnya</button>
                     </a>
                     {/* </Link> */}
