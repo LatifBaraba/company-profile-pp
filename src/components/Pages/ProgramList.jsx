@@ -9,12 +9,15 @@ import { fetchHubungi } from '../../redux/hubungi/action'
 import { fetchProgram, fetchProgramIncidental } from '../../redux/program/action';
 import Contact from '../Common/Contact'
 import { Link } from 'react-router-dom';
+import { fetchBannerProgram } from '../../redux/banner/action';
 
 const ProgramList = (props) => {
     
 
     const token = localStorage.getItem("token")
     const dispatch = useDispatch()
+
+    const [bannerProgramImage, setbannerProgramImage] = useState()
     useEffect(() => {
         dispatch(fetchProgram(token))
         dispatch(fetchProgramIncidental(token))
@@ -22,6 +25,7 @@ const ProgramList = (props) => {
         dispatch(fetchMenu(token))
         dispatch(fetchKontak(token))
         dispatch(fetchHubungi(token))
+        dispatch(fetchBannerProgram(token, 'main-program-banner'))
     }, [token])
 
     const programData = useSelector((state) => state.programReducer.program)
@@ -29,6 +33,7 @@ const ProgramList = (props) => {
     const menuData = useSelector((state) => state.menuReducer.menu)
     const kontakData = useSelector((state) => state.kontakReducer.kontak)
     const hubungiData = useSelector((state) => state.hubungiReducer.hubungi)
+    const bannerProgram = useSelector((state) => state.bannerReducer.bannerProgram)
 
     const ListProgram = programData.map((item, idx) => {
         return (
@@ -124,6 +129,13 @@ const ProgramList = (props) => {
             </div>
         )
     })
+
+    useEffect(() => {
+        bannerProgram.map((e) =>{
+            setbannerProgramImage(e.thumbnail_image_url)
+        })
+    }, [bannerProgram])
+    
     return (
         <>
             <div className="container-xl">
@@ -136,7 +148,7 @@ const ProgramList = (props) => {
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="https://primefoundation.id/scheme/uploads/2020/03/corona-WEB-BANNER.jpg" alt="First slide" />
+                                <img class="d-block w-100" style={{height: '320px'}} src={bannerProgramImage} alt="First slide" />
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="https://tiento.co.id/wp-content/uploads/2020/04/Web-Banner-Hasil-Donasi-web-1400x467.jpg.webp" alt="Second slide" />
