@@ -5,6 +5,9 @@ import { GET_PROGRAM,
     GET_BANNER_FAILURE,
     GET_PROGRAM_INCIDENTAL_SUCCESS,
     GET_PROGRAM_INCIDENTAL_FAILURE,
+    GET_FILEPDF,
+GET_FILEPDF_SUCCESS,
+GET_FILEPDF_FAILURE
         } from '../actionTypes';
 import axios from 'axios';
 
@@ -119,6 +122,47 @@ export function fetchBanner(token, tag) {
             });
     };
 };
+
+
+
+export function fetchFilePdf(token, tag) {
+    return (dispatch) => {
+        axios(URL, {
+            method: 'POST',
+            data: {
+                limit: "100",
+                offset: "0",
+                filters: [
+                    {
+                        field: "document",
+                        keyword: ""
+                    },
+                    {
+                        field: "is_deleted",
+                        keyword: "false"
+                    }
+                ],
+                order: "created_at",
+                sort: "ASC",
+                created_at_from: "",
+                created_at_to: "",
+                publish_at_from: "",
+                publish_at_to: ""
+            },
+            headers: {
+                "pp-token": `${token}`,
+                "Content-type": "application/json"
+            }
+        })
+            .then(res => {
+                dispatch(getFilePdfSuccess(res.data.data));
+            })
+            .catch(err => {
+                dispatch(getFilePdfFailure(err));
+                console.log(err)
+            });
+    };
+};
 // GET BANNER
 const getBannerSuccess = (payload) => ({
     type: GET_BANNER_SUCCESS,
@@ -148,4 +192,14 @@ const getProgramIncidentalFailure = () => ({
 
 const getProgram = () => ({
     type: GET_PROGRAM
+});
+
+// GET FILEPDF
+const getFilePdfSuccess = (payload) => ({
+    type: GET_FILEPDF_SUCCESS,
+    payload
+});
+
+const getFilePdfFailure = () => ({
+    type: GET_FILEPDF_FAILURE
 });

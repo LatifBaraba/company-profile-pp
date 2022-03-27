@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAlbum } from '../../redux/album/action'
-import { fetchBanner } from '../../redux/program/action'
+import { fetchBanner, fetchFilePdf } from '../../redux/program/action'
 import Work from '../Common/Work'
 import OwlCarousel from 'react-owl-carousel3';
 import { fetchAchievement } from '../../redux/achievement/action'
@@ -16,6 +16,7 @@ import { fetchMenu } from '../../redux/menu/action'
 import { fetchKontak } from '../../redux/kontak/action'
 import { fetchHubungi } from '../../redux/hubungi/action'
 import Contact from '../Common/Contact'
+import { Link } from 'react-router-dom'
 
 const ProgramDetail = (props) => {
     const item = props.location.state
@@ -30,6 +31,7 @@ const ProgramDetail = (props) => {
         dispatch(fetchKontak(token))
         dispatch(fetchHubungi(token))
         dispatch(fetchBanner(token, item.tag))
+        dispatch(fetchFilePdf(token))
     }, [token, item.tag])
 
     const albumData = useSelector((state) => state.albumReducer.album)
@@ -38,6 +40,7 @@ const ProgramDetail = (props) => {
     const menuData = useSelector((state) => state.menuReducer.menu)
     const kontakData = useSelector((state) => state.kontakReducer.kontak)
     const hubungiData = useSelector((state) => state.hubungiReducer.hubungi)
+    const filePdfData = useSelector((state) => state.programReducer.filepdf)
  
     console.log(albumData, 'album')
     const [didViewCountUp, setDidViewCountUp] = useState(false)
@@ -242,6 +245,38 @@ const ProgramDetail = (props) => {
                         }
                     </div>
                 </div>
+
+                {/* <div className="section"> */}
+                <section id="contact" className="contact-area ptb-80 bg-ffffff">
+                    <div className="container">
+                    <div className="row">
+                       
+                    {filePdfData.map((data, idx) => (
+                    <div className="col-lg-4 col-md-12">
+                        <div className="contact-two">
+                            <h4>File</h4>
+                            <ul>
+                                
+                                    <li>
+                                        <a href={data.document[0].link_url} rel="noopener noreferrer" target="_blank">
+                                            <div className="social-logo">
+                                                {/* <i class="fa fa-envelope fa-lg"></i> */}
+                                                {/* <img className="mr-2" src={data.document[0].title} alt="" style={{width:50}}/> */}
+                                                <span>{data.document[0].title}</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                
+                               
+                            </ul>
+                        </div>
+                    </div>
+                    ))}
+                  
+                </div>
+                    </div>
+                </section>
+                {/* </div> */}
                 {/* <div className=" ptb-80" style={{ background: '#0F72BE' }}>
                     <Carousel
                         swipeable={true}
