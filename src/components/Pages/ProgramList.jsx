@@ -79,19 +79,19 @@ const ProgramList = (props) => {
             <div class="postcard dark yellow mb-5" style={{ display: 'flex' }} key={idx}>
                 <div className="mr-3">
                     <a class="postcard__img_link" href="#">
-                        <Link  to={{
-                            pathname: `/program-detail/` + item.tag + '/' + item.id,
-                            state: {
-                                id: item.id,
-                                title: item.sub_title,
-                                image: item.thumbnail_image_url,
-                                description: item.description,
-                                created_at: item.created_at,
-                                beneficaries: item.beneficaries_image_url,
-                                tag: item.tag,
-                                achievements: item.achievements
-                            }
-                        }} target={"_blank"}>
+                        <Link  to={
+                            `/program-detail/` + item.tag + '/' + item.id
+                            // state: {
+                            //     id: item.id,
+                            //     title: item.sub_title,
+                            //     image: item.thumbnail_image_url,
+                            //     description: item.description,
+                            //     created_at: item.created_at,
+                            //     beneficaries: item.beneficaries_image_url,
+                            //     tag: item.tag,
+                            //     achievements: item.achievements
+                            // }
+                        } target={"_blank"}>
                             <img class="postcard__img" src={item.thumbnail_image_url} alt="Image Title" style={{ maxWidth: '300px' }} />
                         </Link>
                     </a>
@@ -109,7 +109,7 @@ const ProgramList = (props) => {
                             tag: item.tag,
                             achievements: item.achievements
                         }
-                    }}  target={"_blank"}>
+                    }} >
                         <h1 class="postcard__title yellow">{item.sub_title}</h1>
                     </Link>
                     <div class="postcard__subtitle small mb-2">
@@ -138,7 +138,7 @@ const ProgramList = (props) => {
                                 created_at: item.created_at,
                                 beneficaries: item.beneficaries_image_url
                             }
-                        }} target={"_blank"}>
+                        }}>
                             <img class="postcard__img" src={item.thumbnail_image_url} alt="Image Title" style={{ maxWidth: '300px' }} />
                         </Link>
                     </a>
@@ -155,7 +155,7 @@ const ProgramList = (props) => {
                             beneficaries: item.beneficaries_image_url
 
                         }
-                    }} target={"_blank"} >
+                    }} >
                         <h1 class="postcard__title yellow">{item.sub_title}</h1>
                     </Link>
                     <div class="postcard__subtitle small mb-2">

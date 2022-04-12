@@ -60,7 +60,7 @@ const App = () => {
         {/* <Switch> */}
         {loading ? <Preloader /> : ""}
         {/* <Route path="/program" exact component={ProgramList} /> */}
-
+       
         {window.location.href.split("/")[3] === "program" ? (
           <>            
             <Route path="/program" exact component={ProgramList} />

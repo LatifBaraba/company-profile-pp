@@ -20,9 +20,9 @@ import { Link, useParams } from 'react-router-dom'
 
 const ProgramDetail = () => {
     // const item = props.location.state
-
-    // console.log(item)
+    // window.location.reload()
     const { tag, id } = useParams()    
+    console.log(tag, id)
     const token = localStorage.getItem("token")    
     const dispatch = useDispatch()
     useEffect(() => {  
@@ -34,7 +34,7 @@ const ProgramDetail = () => {
         dispatch(fetchBanner(token, tag))
         dispatch(fetchFilePdf(token))
         dispatch(fetchProgramDetail(token, id))  
-    }, [token, tag])
+    }, [token, tag, id])
 
     const albumData = useSelector((state) => state.albumReducer.album)
     const bannerData = useSelector((state) => state.programReducer.banner)
