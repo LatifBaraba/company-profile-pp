@@ -44,7 +44,7 @@ export function fetchBanner(token) {
     };
 };
 
-export function fetchBannerProgram(token, tag) {
+export function fetchBannerProgram(token) {
     return (dispatch) => {
         axios(URL, {
             method: 'POST',
@@ -56,10 +56,10 @@ export function fetchBannerProgram(token, tag) {
                         field: "is_deleted",
                         keyword: "false"
                     },
-                    {
-                        field: "tag",
-                        keyword: `${tag}`
-                    }
+                    // {
+                    //     field: "tag",
+                    //     keyword: `${tag}`
+                    // }
                 ],
                 order: "created_at",
                 sort: "ASC",

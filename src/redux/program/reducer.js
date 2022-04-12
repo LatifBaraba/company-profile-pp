@@ -8,7 +8,9 @@ import {
     GET_PROGRAM_INCIDENTAL_FAILURE,
     GET_FILEPDF,
 GET_FILEPDF_SUCCESS,
-GET_FILEPDF_FAILURE
+GET_FILEPDF_FAILURE,
+GET_PROGRAM_DETAIL_SUCCESS,
+GET_PROGRAM_DETAIL_FAILURE
     
 } from '../actionTypes';
 
@@ -18,6 +20,7 @@ const initialState = {
     incidental: [],
     banner: [],
     filepdf: [],
+    programdetail:[],
     error: null
 };
 
@@ -72,6 +75,18 @@ export default function programReducer(state = initialState, action) {
                 filepdf: action.payload
             };
         case GET_FILEPDF_FAILURE:
+            return {
+                ...state,
+                loading: false,
+            };
+        case GET_PROGRAM_DETAIL_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                programdetail: action.payload
+            };
+        case GET_PROGRAM_DETAIL_FAILURE:
             return {
                 ...state,
                 loading: false,

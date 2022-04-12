@@ -10,6 +10,8 @@ import { fetchProgram, fetchProgramIncidental } from '../../redux/program/action
 import Contact from '../Common/Contact'
 import { Link } from 'react-router-dom';
 import { fetchBannerProgram } from '../../redux/banner/action';
+import OwlCarousel from 'react-owl-carousel3';
+import VisibilitySensor from "react-visibility-sensor";
 
 const ProgramList = (props) => {
     
@@ -25,7 +27,7 @@ const ProgramList = (props) => {
         dispatch(fetchMenu(token))
         dispatch(fetchKontak(token))
         dispatch(fetchHubungi(token))
-        dispatch(fetchBannerProgram(token, 'main-program-banner'))
+        dispatch(fetchBannerProgram(token))
     }, [token])
 
     const programData = useSelector((state) => state.programReducer.program)
@@ -35,13 +37,50 @@ const ProgramList = (props) => {
     const hubungiData = useSelector((state) => state.hubungiReducer.hubungi)
     const bannerProgram = useSelector((state) => state.bannerReducer.bannerProgram)
 
+
+    const options = {
+        items: 1,
+        loop: false,
+        autoplay: true,
+        nav: true,
+        responsiveClass: true,
+        dots: false,
+        autoplayHoverPause: true,
+        mouseDrag: true,
+        navText: [
+            "<i class='fa fa-angle-left'></i>",
+            "<i class='fa fa-angle-right'></i>"
+        ]
+    }
+
+
+    const buttonLeft = (title_button_left, deeplink_left, isVisible) => {
+        if(title_button_left != null) {
+            return(
+                <a href={`${deeplink_left ? deeplink_left : "#"} `} className={`btn btn-primary m-2 ${isVisible ? "animated fadeInDown slow opacityOne" : ""} `} target="_blank" rel="noopener noreferrer">
+                    {title_button_left}
+                </a>
+            )
+        }
+    }
+    
+    const buttonRight = (title_button_right, deeplink_right, isVisible) => {
+        if(title_button_right != null) {
+            return(
+                <a href={`${deeplink_right ? deeplink_right : "#"} `} className={`btn btn-primary m-2 ${isVisible ? "animated fadeInDown slow opacityOne" : ""} `} target="_blank" rel="noopener noreferrer">
+                    {title_button_right}
+                </a>
+            )
+        }
+    }
+
     const ListProgram = programData.map((item, idx) => {
         return (
             <div class="postcard dark yellow mb-5" style={{ display: 'flex' }} key={idx}>
                 <div className="mr-3">
                     <a class="postcard__img_link" href="#">
-                        <Link to={{
-                            pathname: `/program-detail`,
+                        <Link  to={{
+                            pathname: `/program-detail/` + item.tag + '/' + item.id,
                             state: {
                                 id: item.id,
                                 title: item.sub_title,
@@ -52,14 +91,14 @@ const ProgramList = (props) => {
                                 tag: item.tag,
                                 achievements: item.achievements
                             }
-                        }}>
+                        }} target={"_blank"}>
                             <img class="postcard__img" src={item.thumbnail_image_url} alt="Image Title" style={{ maxWidth: '300px' }} />
                         </Link>
                     </a>
                 </div>
                 <div class="postcard__text">
                     <Link to={{
-                        pathname: `/program-detail`,
+                        pathname: `/program-detail/`  + item.tag + '/' + item.id,
                         state: {
                             id: item.id,
                             title: item.sub_title,
@@ -70,8 +109,8 @@ const ProgramList = (props) => {
                             tag: item.tag,
                             achievements: item.achievements
                         }
-                    }}>
-                        <h1 class="postcard__title yellow"><a href="#">{item.sub_title}</a></h1>
+                    }}  target={"_blank"}>
+                        <h1 class="postcard__title yellow">{item.sub_title}</h1>
                     </Link>
                     <div class="postcard__subtitle small mb-2">
                         <time datetime="2020-05-25 12:00:00">
@@ -89,8 +128,8 @@ const ProgramList = (props) => {
             <div class="postcard dark yellow mb-5" style={{ display: 'flex' }} key={idx}>
                 <div className="mr-3">
                     <a class="postcard__img_link" href="#">
-                        <Link to={{
-                            pathname: `/program-detail`,
+                        <Link   to={{
+                            pathname: `/program-detail/`  + item.tag + '/' + item.id,
                             state: {
                                 id: item.id,
                                 title: item.sub_title,
@@ -99,14 +138,14 @@ const ProgramList = (props) => {
                                 created_at: item.created_at,
                                 beneficaries: item.beneficaries_image_url
                             }
-                        }}>
+                        }} target={"_blank"}>
                             <img class="postcard__img" src={item.thumbnail_image_url} alt="Image Title" style={{ maxWidth: '300px' }} />
                         </Link>
                     </a>
                 </div>
                 <div class="postcard__text">
                     <Link to={{
-                        pathname: `/program-detail`,
+                        pathname: `/program-detail/`  + item.tag + '/' + item.id,
                         state: {
                             id: item.id,
                             title: item.sub_title,
@@ -116,8 +155,8 @@ const ProgramList = (props) => {
                             beneficaries: item.beneficaries_image_url
 
                         }
-                    }}>
-                        <h1 class="postcard__title yellow"><a href="#">{item.sub_title}</a></h1>
+                    }} target={"_blank"} >
+                        <h1 class="postcard__title yellow">{item.sub_title}</h1>
                     </Link>
                     <div class="postcard__subtitle small mb-2">
                         <time datetime="2020-05-25 12:00:00">
@@ -130,26 +169,65 @@ const ProgramList = (props) => {
         )
     })
 
-    useEffect(() => {
-        bannerProgram.map((e) =>{
-            setbannerProgramImage(e.thumbnail_image_url)
-        })
-    }, [bannerProgram])
+    // useEffect(() => {
+    //     bannerProgram.map((e) =>{
+    //         setbannerProgramImage(e.thumbnail_image_url)
+    //     })
+    // }, [bannerProgram])
     
     return (
         <>
             <div className="container-xl">
                 <div className="pl-0 pr-0">
-                    <div id="carouselExampleIndicators" class="carousel slide mb-5" data-ride="carousel">
+
+                <OwlCarousel 
+                    id="home"
+                    className="home-slides owl-theme"
+                    {...options}
+                >
+                {bannerProgram.map((data, idx) => (
+                    <div className={`main-banner`} key={idx} style={{backgroundImage: `url(${data.thumbnail_image_url})`, height: '400px' }}>
+                        <div className="d-table">
+                            <div className="d-table-cell">
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-lg-12 col-md-12">
+                                            {/* <VisibilitySensor delayedCall> */}
+                                            {/* {({ isVisible }) => (
+                                                <div className="main-banner-text">
+                                                    <h4 className={ isVisible ? "animated fadeInDown slow opacityOne" : ''}>
+                                                        {data.title}
+                                                    </h4>
+                                                    <h1 className={ isVisible ? "animated fadeInDown slow opacityOne" : ''} dangerouslySetInnerHTML={{ __html: data.sub_title }}/>
+
+                                                    <p className={ isVisible ? "animated fadeInDown slow opacityOne" : ''}>
+                                                        {data.description}
+                                                    </p>
+                                                </div>
+                                            )} */}
+                                            {/* </VisibilitySensor> */}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </OwlCarousel>
+            
+                    {/* <div id="carouselExampleIndicators" class="carousel slide mb-5" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" style={{height: '320px'}} src={bannerProgramImage} alt="First slide" />
-                            </div>
+                                {bannerProgram.map((e) => (
+                                    <div class="carousel-item">
+                                            <img class="d-block w-100" style={{height: '320px'}} src={e.thumbnail_image_url} alt="" />
+                                    </div>
+                                ))}
+                            
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="https://tiento.co.id/wp-content/uploads/2020/04/Web-Banner-Hasil-Donasi-web-1400x467.jpg.webp" alt="Second slide" />
                             </div>
@@ -165,7 +243,7 @@ const ProgramList = (props) => {
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="section-title">
                     <h1 class="postcard__title yellow mb-2" ><a style={{ color: '#0F72BE', fontWeight: '600' }}>Program Utama</a></h1>

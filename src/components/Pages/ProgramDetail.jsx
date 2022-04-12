@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAlbum } from '../../redux/album/action'
-import { fetchBanner, fetchFilePdf } from '../../redux/program/action'
+import { fetchBanner, fetchFilePdf, fetchProgramDetail } from '../../redux/program/action'
 import Work from '../Common/Work'
 import OwlCarousel from 'react-owl-carousel3';
 import { fetchAchievement } from '../../redux/achievement/action'
@@ -16,23 +16,25 @@ import { fetchMenu } from '../../redux/menu/action'
 import { fetchKontak } from '../../redux/kontak/action'
 import { fetchHubungi } from '../../redux/hubungi/action'
 import Contact from '../Common/Contact'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
-const ProgramDetail = (props) => {
-    const item = props.location.state
+const ProgramDetail = () => {
+    // const item = props.location.state
 
-    console.log(item)
-    const token = localStorage.getItem("token")
+    // console.log(item)
+    const { tag, id } = useParams()    
+    const token = localStorage.getItem("token")    
     const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(fetchAlbum(token, item.tag))
+    useEffect(() => {  
+        dispatch(fetchAlbum(token, tag))
         dispatch(fetchBerita(token))
         dispatch(fetchMenu(token))
         dispatch(fetchKontak(token))
         dispatch(fetchHubungi(token))
-        dispatch(fetchBanner(token, item.tag))
+        dispatch(fetchBanner(token, tag))
         dispatch(fetchFilePdf(token))
-    }, [token, item.tag])
+        dispatch(fetchProgramDetail(token, id))  
+    }, [token, tag])
 
     const albumData = useSelector((state) => state.albumReducer.album)
     const bannerData = useSelector((state) => state.programReducer.banner)
@@ -41,8 +43,8 @@ const ProgramDetail = (props) => {
     const kontakData = useSelector((state) => state.kontakReducer.kontak)
     const hubungiData = useSelector((state) => state.hubungiReducer.hubungi)
     const filePdfData = useSelector((state) => state.programReducer.filepdf)
+    const programDetailData = useSelector((state) => state.programReducer.programdetail)
  
-    console.log(albumData, 'album')
     const [didViewCountUp, setDidViewCountUp] = useState(false)
 
     const onVisibilityChange = isVisible => {
@@ -135,50 +137,11 @@ const ProgramDetail = (props) => {
     };
     return (
         <>
-            {bannerData && bannerData.length > 0 &&
-                <OwlCarousel
-                    id="home"
-                    className="home-slides owl-theme"
-                    {...optionsBanner}
-                >
-                    {bannerData.map((data, idx) => (
-                        <div className={`main-banner`} key={idx} style={{ backgroundImage: `url(${data.thumbnail_image_url})` }}>
-                            <div className="d-table">
-                                <div className="d-table-cell">
-                                    <div className="container">
-                                        <div className="row">
-                                            <div className="col-lg-12 col-md-12">
-                                                <VisibilitySensor delayedCall>
-                                                    {({ isVisible }) => (
-                                                        <div className="main-banner-text">
-                                                            <h4 className={isVisible ? "animated fadeInDown slow opacityOne" : ''}>
-                                                                {data.title}
-                                                            </h4>
-                                                            <h1 className={isVisible ? "animated fadeInDown slow opacityOne" : ''} dangerouslySetInnerHTML={{ __html: data.sub_title }} />
+            
 
-                                                            <p className={isVisible ? "animated fadeInDown slow opacityOne" : ''}>
-                                                                {data.description}
-                                                            </p>
-                                                            {buttonLeft(data.title_button_left, data.deeplink_left, isVisible)}
-                                                            {buttonRight(data.title_button_right, data.deeplink_right, isVisible)}
-                                                            {/* <AnchorLink href="#about" className={`btn btn-primary ${isVisible ? "animated fadeInDown slow opacityOne" : ""} `}>
-                                                        Get Started
-                                                    </AnchorLink> */}
-                                                            {/* <AnchorLink href="#work" className={`btn btn-primary view-work ${isVisible ? "animated fadeInDown slow opacityOne" : ""}`}>
-                                                        View Work
-                                                    </AnchorLink> */}
-                                                        </div>
-                                                    )}
-                                                </VisibilitySensor>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </OwlCarousel>
-            }
+            {programDetailData.map((e) => (
+
+               
             <div className="container-xl" style={{ marginTop: '100px' }}>
                 <div className="pl-0 pr-0">
                    
@@ -210,17 +173,17 @@ const ProgramDetail = (props) => {
                 <div class="postcard dark yellow mb-5" style={{ display: 'flex' }}>
                     <div className="mr-3">
                         <a class="postcard__img_link" href="#">
-                            <img class="postcard__img" src={item.image} alt="Image Title" style={{ maxWidth: '300px' }} />
+                            <img class="postcard__img" src={e.thumbnail_image_url} alt="Image Title" style={{ maxWidth: '300px' }} />
                         </a>
                     </div>
                     <div class="postcard__text">
-                        <h1 class="postcard__title yellow"><a href="#">{item.title}</a></h1>
+                        <h1 class="postcard__title yellow"><a href="#">{e.title}</a></h1>
                         <div class="postcard__subtitle small mb-2">
                             <time datetime="2020-05-25 12:00:00">
-                                <i class="fas fa-calendar-alt mr-2"></i>{item.created_at}
+                                <i class="fas fa-calendar-alt mr-2"></i>{e.created_at}
                             </time>
                         </div>
-                        <div class="postcard__preview-txt">{item.description}</div>
+                        <div class="postcard__preview-txt">{e.description}</div>
                     </div>
                 </div>
 
@@ -230,9 +193,9 @@ const ProgramDetail = (props) => {
                         <h1 class="postcard__title yellow mb-2" ><a style={{ color: '#0F72BE', fontWeight: '600' }}>Beneficiaries</a></h1>
                     </div>
                     <div className="shorting">
-                        {item.beneficaries &&
+                        {e.beneficaries_image_url &&
                             <OwlCarousel className="blog-slider owl-carousel owl-theme" {...options}>
-                                {item.beneficaries.map((data, idx) => {
+                                {e.beneficaries_image_url.map((data, idx) => {
                                     return (
                                         <div className="" key={idx} id={data.id}>
                                             <div className="single-blog-item" style={{ backgroundImage: `url(${data})`, width: "100%", height: "300px" }}>
@@ -328,6 +291,7 @@ const ProgramDetail = (props) => {
                     </Carousel>
                 </div> */}
             </div>
+             ))}
             <Work data={albumData} />
             <News data={beritaData} />
             <Contact menu={menuData} kontak={kontakData} hubungi={hubungiData} />

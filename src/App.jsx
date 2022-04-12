@@ -62,15 +62,19 @@ const App = () => {
         {/* <Route path="/program" exact component={ProgramList} /> */}
 
         {window.location.href.split("/")[3] === "program" ? (
-          <>
+          <>            
             <Route path="/program" exact component={ProgramList} />
-            <Route path="/program-detail" exact component={ProgramDetail} />
+            {/* <Route path="/program-detail/:tag/:id" exact component={ProgramDetail} /> */}
             <Route
               path="/incidental-program"
               exact
               component={IncidentalProgram}
             />
           </>
+        ) : window.location.href.split("/")[3] === "program-detail" ? (
+            <>
+              <Route path="/program-detail/:tag/:id" exact component={ProgramDetail} />
+            </>
         ) : (
           <>
             <Navigation />
@@ -84,6 +88,7 @@ const App = () => {
             <Route path="/news/news-detail" exact component={NewsDetail} />
             <Route path="/albums" exact component={Album} />
             <Route path="/team-kami" exact component={StrukturTeam} />
+            
           </>
         )}
         {/* </Switch> */}
