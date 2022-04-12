@@ -141,9 +141,10 @@ const ProgramDetail = (props) => {
             
 
             {programDetailData.map((e) => (
-
+            
                
             <div className="container-xl" style={{ marginTop: '100px' }}>
+                {console.log(e)}
                 <div className="pl-0 pr-0">
                    
                     {/* <div id="carouselExampleIndicators" className="carousel slide mb-5" data-ride="carousel">
@@ -215,18 +216,18 @@ const ProgramDetail = (props) => {
                     <div className="container">
                     <div className="row">
                        
-                    {filePdfData.map((data, idx) => (
+                    {e.document.map((data, idx) => (
                     <div className="col-lg-4 col-md-12">
                         <div className="contact-two">
                             <h4>File</h4>
                             <ul>
                                 
                                     <li>
-                                        <a href={data.document[0].link_url} rel="noopener noreferrer" target="_blank">
+                                        <a href={data.link_url} rel="noopener noreferrer" target="_blank">
                                             <div className="social-logo">
                                                 {/* <i class="fa fa-envelope fa-lg"></i> */}
-                                                {/* <img className="mr-2" src={data.document[0].title} alt="" style={{width:50}}/> */}
-                                                <span>{data.document[0].title}</span>
+                                                {/* <img className="mr-2" src={data.title} alt="" style={{width:50}}/> */}
+                                                <span>{data.title}</span>
                                             </div>
                                         </a>
                                     </li>
