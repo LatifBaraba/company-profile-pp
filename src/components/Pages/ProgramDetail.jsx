@@ -18,23 +18,24 @@ import { fetchHubungi } from '../../redux/hubungi/action'
 import Contact from '../Common/Contact'
 import { Link, useParams } from 'react-router-dom'
 
-const ProgramDetail = () => {
-    // const item = props.location.state
+const ProgramDetail = (props) => {
+    const item = props.location.state
     // window.location.reload()
-    const { tag, id } = useParams()    
-    console.log(tag, id)
+    // console.log(item)
+    // const { tag, id } = useParams()    
+    // console.log(tag, id)
     const token = localStorage.getItem("token")    
     const dispatch = useDispatch()
     useEffect(() => {  
-        dispatch(fetchAlbum(token, tag))
+        dispatch(fetchAlbum(token, item.tag))
         dispatch(fetchBerita(token))
         dispatch(fetchMenu(token))
         dispatch(fetchKontak(token))
         dispatch(fetchHubungi(token))
-        dispatch(fetchBanner(token, tag))
+        dispatch(fetchBanner(token, item.tag))
         dispatch(fetchFilePdf(token))
-        dispatch(fetchProgramDetail(token, id))  
-    }, [token, tag, id])
+        dispatch(fetchProgramDetail(token, item.id))  
+    }, [token, item.tag, item.id])
 
     const albumData = useSelector((state) => state.albumReducer.album)
     const bannerData = useSelector((state) => state.programReducer.banner)

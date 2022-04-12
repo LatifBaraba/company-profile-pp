@@ -61,21 +61,18 @@ const App = () => {
         {loading ? <Preloader /> : ""}
         {/* <Route path="/program" exact component={ProgramList} /> */}
        
-        {window.location.href.split("/")[3] === "program" ? (
+        {window.location.href.split("/")[3] === "program" || window.location.href.split("/")[3] === "program-detail" ? (
           <>            
             <Route path="/program" exact component={ProgramList} />
-            {/* <Route path="/program-detail/:tag/:id" exact component={ProgramDetail} /> */}
+            <Route path="/program-detail" exact component={ProgramDetail} />
             <Route
               path="/incidental-program"
               exact
               component={IncidentalProgram}
             />
           </>
-        ) : window.location.href.split("/")[3] === "program-detail" ? (
-            <>
-              <Route path="/program-detail/:tag/:id" exact component={ProgramDetail} />
-            </>
-        ) : (
+        ) 
+        : (
           <>
             <Navigation />
             <Route path="/" exact component={Home} />

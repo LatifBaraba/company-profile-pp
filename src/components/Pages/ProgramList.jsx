@@ -79,26 +79,26 @@ const ProgramList = (props) => {
             <div class="postcard dark yellow mb-5" style={{ display: 'flex' }} key={idx}>
                 <div className="mr-3">
                     <a class="postcard__img_link" href="#">
-                        <Link  to={
-                            `/program-detail/` + item.tag + '/' + item.id
-                            // state: {
-                            //     id: item.id,
-                            //     title: item.sub_title,
-                            //     image: item.thumbnail_image_url,
-                            //     description: item.description,
-                            //     created_at: item.created_at,
-                            //     beneficaries: item.beneficaries_image_url,
-                            //     tag: item.tag,
-                            //     achievements: item.achievements
-                            // }
-                        } target={"_blank"}>
+                        <Link  to={{
+                            pathname: `/program-detail`,
+                            state: {
+                                id: item.id,
+                                title: item.sub_title,
+                                image: item.thumbnail_image_url,
+                                description: item.description,
+                                created_at: item.created_at,
+                                beneficaries: item.beneficaries_image_url,
+                                tag: item.tag,
+                                achievements: item.achievements
+                            }
+                        }}>
                             <img class="postcard__img" src={item.thumbnail_image_url} alt="Image Title" style={{ maxWidth: '300px' }} />
                         </Link>
                     </a>
                 </div>
                 <div class="postcard__text">
                     <Link to={{
-                        pathname: `/program-detail/`  + item.tag + '/' + item.id,
+                        pathname: `/program-detail`,
                         state: {
                             id: item.id,
                             title: item.sub_title,
@@ -129,7 +129,7 @@ const ProgramList = (props) => {
                 <div className="mr-3">
                     <a class="postcard__img_link" href="#">
                         <Link   to={{
-                            pathname: `/program-detail/`  + item.tag + '/' + item.id,
+                            pathname: `/program-detail`,
                             state: {
                                 id: item.id,
                                 title: item.sub_title,
@@ -145,7 +145,7 @@ const ProgramList = (props) => {
                 </div>
                 <div class="postcard__text">
                     <Link to={{
-                        pathname: `/program-detail/`  + item.tag + '/' + item.id,
+                        pathname: `/program-detail` ,
                         state: {
                             id: item.id,
                             title: item.sub_title,
