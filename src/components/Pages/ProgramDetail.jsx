@@ -219,7 +219,7 @@ const ProgramDetail = (props) => {
                     {e.document.map((data, idx) => (
                     <div className="col-lg-4 col-md-12">
                         <div className="contact-two">
-                            <h4>File</h4>
+                            <h4>Dokumen Terkait</h4>
                             <ul>
                                 
                                     <li>
