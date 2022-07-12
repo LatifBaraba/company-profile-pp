@@ -1,9 +1,14 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Contact from "../Common/Contact"
 import Footer from "../Common/Footer"
 
 const NewsDetail = (props) => {
     const item = props.location.state
+
+    useEffect(() => {
+      window.scrollTo(0,0)
+    }, [])
+    
 
     return (
         <>

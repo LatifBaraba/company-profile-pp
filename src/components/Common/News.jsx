@@ -1,6 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel3';
+import { fetchMenu } from '../../redux/menu/action';
+import { fetchKontak } from '../../redux/kontak/action';
+import { fetchHubungi } from '../../redux/hubungi/action';
 
 const options = {
     loop: false,
@@ -31,6 +35,21 @@ const options = {
 const News = (props) => {
 
     const beritaData = props.data;
+
+    const token = localStorage.getItem("token")
+    const dispatch = useDispatch()
+    const [tag, setTag] = useState("tag")
+    // const [tagLine, setTagLine] = useState("BinDes")
+    const [tagField, setTagField] = useState([])
+    useEffect(() => {
+        dispatch(fetchMenu(token))
+        dispatch(fetchKontak(token))
+        dispatch(fetchHubungi(token))
+        }, [token, tag, dispatch])
+
+    const menuData = useSelector((state) => state.menuReducer.menu)
+    const kontakData = useSelector((state) => state.kontakReducer.kontak)
+    const hubungiData = useSelector((state) => state.hubungiReducer.hubungi)
 
     return (
         <section id="news" className="news-area ptb-80" style={{ backgroundColor: '#f6f6f6' }}>
@@ -76,7 +95,24 @@ const News = (props) => {
                             {beritaData.map((data, idx) => (
                                 <div className="col-lg-12 col-md-12" key={idx} id={data.id}>
                                     <div className="single-blog-item" style={{ backgroundImage: `url(${data.thumbnail_image_url})` }}>
-                                        <Link to="#" title="Read More" className="link-btn"><i className="fa fa-arrow-right"></i></Link>
+                                        {/* <Link to="#" title="Read More" className="link-btn">
+                                            <i className="fa fa-arrow-right"></i>
+                                        </Link> */}
+                                        <Link to={{
+                                            pathname: `/news/news-detail`,
+                                            state: {
+                                                id: data.id,
+                                                sub_title: data.sub_title,
+                                                image: data.thumbnail_image_url,
+                                                description: data.description,
+                                                created_at: data.created_at,
+                                                menu: menuData,
+                                                kontak: kontakData,
+                                                hubungi: hubungiData
+                                            }
+                                        }} title="Read More" className="link-btn">
+                                           <i className="fa fa-arrow-right"></i>
+                                        </Link> 
                                     </div>
                                     <div>
                                         <span>{data.title}</span>
@@ -84,7 +120,23 @@ const News = (props) => {
                                         <h4>{data.sub_title}</h4>
 
                                         <p style={{ display: '-webkit-box', WebkitLineClamp: '3', WebkitBoxOrient: 'vertical', overflow: 'hidden', lineHeight: '1.5' }}>{data.description}</p>
-                                        <Link to="#" title="Read More" className="link-btn"><a><p>read more <i className="fa fa-arrow-right"></i></p></a></Link>
+                                        {/* <Link to="#" title="Read More" className="link-btn"><a><p>read more <i className="fa fa-arrow-right"></i></p></a></Link> */}
+                                        {/* {console.log(data)} */}
+                                        <Link to={{
+                                            pathname: `/news/news-detail`,
+                                            state: {
+                                                id: data.id,
+                                                sub_title: data.sub_title,
+                                                image: data.thumbnail_image_url,
+                                                description: data.description,
+                                                created_at: data.created_at,
+                                                menu: menuData,
+                                                kontak: kontakData,
+                                                hubungi: hubungiData
+                                            }
+                                        }} title="Read More" className="link-btn">
+                                           <a><p>read more <i className="fa fa-arrow-right"></i></p></a>
+                                        </Link> 
 
                                     </div>
                                 </div>

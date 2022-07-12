@@ -21,7 +21,7 @@ export function fetchBerita(token) {
         axios(URL, {
             method: 'POST',
             data: {
-                limit: "3",
+                limit: "200",
                 offset: "1",
                 filters: [
                     {

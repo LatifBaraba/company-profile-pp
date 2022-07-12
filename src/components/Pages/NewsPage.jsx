@@ -49,11 +49,16 @@ const NewsPage = () => {
         dispatch(fetchTagBerita(token))
         dispatch(fetchBeritaHeadline(token))
         dispatch(fetchBeritaByTag(token, tag, "BinDes"))
+      
     }, [token, tag, dispatch])
     useEffect(() => {
         setTagField(newArr)
-
     }, [newArr])
+    useEffect(() => {
+      
+        window.scrollTo(0, 0)
+    }, [])
+    
     const beritaData = useSelector((state) => state.beritaReducer.berita)
     const tagList = useSelector((state) => state.beritaReducer.tagList)
     const beritaTagData = useSelector((state) => state.beritaReducer.beritaTag)
