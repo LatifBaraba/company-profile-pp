@@ -27,7 +27,11 @@ export function fetchBerita(token) {
                     {
                         field: "is_headline",
                         keyword: "true",
-                    }
+                    },
+                    {
+                        field: "is_deleted",
+                        keyword: "false",
+                    },
                 ],
                 order: "created_at",
                 sort: "DESC",
@@ -55,12 +59,16 @@ export function fetchBeritaHeadline(token) {
         axios(URL, {
             method: 'POST',
             data: {
-                limit: "100",
+                limit: "200",
                 offset: "0",
                 filters: [
                     {
                         field: "is_headline",
                         keyword: "true",
+                    },
+                    {
+                        field: "is_deleted",
+                        keyword: "false",
                     }
                 ],
                 order: "created_at",

@@ -11,7 +11,7 @@ export function fetchPartner(token) {
         axios(URL, {
             method: 'POST',
             data: {
-                limit: "100",
+                limit: "200",
                 offset: "0",
                 filters: [
                     {
